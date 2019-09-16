@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ptimera_wpf.Investigador">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAQACAAAAA=</HashCode>
+      <FileName>Investigador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ptimera_wpf.HojaDeVida">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAAAAQAABAAA=</HashCode>
+      <FileName>HojaDeVida.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ptimera_wpf.Proyecto">
+    <Position X="1.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BaAAAAAAAAAAABAAAAAAAAAAAhAgAACBAAAAAAAwAgA=</HashCode>
+      <FileName>Proyecto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Investigador" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
