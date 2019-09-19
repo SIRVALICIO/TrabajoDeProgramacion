@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ptimera_wpf"
         mc:Ignorable="d"
-        Title="WindowInfo" Height="1725.927" Width="4832.439">
-    <Grid Margin="10,0,0,0" RenderTransformOrigin="0.481,0.508" HorizontalAlignment="Left" Width="4812">
+        Title="WindowInfo" Height="1799.146" Width="4832.439">
+    <Grid Margin="10,0,0,-19.4" RenderTransformOrigin="0.481,0.508" HorizontalAlignment="Left" Width="4812">
         <TextBox x:Name="Text_blockNombre" HorizontalAlignment="Left" Height="128" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="790" TextChanged="TextBox_TextChanged" Text="Nombre del proyecto: " FontSize="75"/>
         <TextBox x:Name="Text_BoxNombre" HorizontalAlignment="Left" Height="128" Margin="858,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="3944" FontSize="60"/>
         <TextBox x:Name="Text_BlockLider" HorizontalAlignment="Left" Height="152" Margin="10,185,0,0" TextWrapping="Wrap" Text="Lider:" VerticalAlignment="Top" Width="790" FontSize="75"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1686" Margin="800,10,0,0" VerticalAlignment="Top" Width="0"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1295" Margin="800,10,0,0" VerticalAlignment="Top" Width="0"/>
-        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="1766" Margin="800,10,0,-80" VerticalAlignment="Top" Width="5"/>
+        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="1779" Margin="800,10,0,0" VerticalAlignment="Top" Width="5"/>
         <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="0,138,-41,0" VerticalAlignment="Top" Width="4853"/>
         <TextBlock HorizontalAlignment="Left" Margin="0,382,0,0" TextWrapping="Wrap" Text="Área:" VerticalAlignment="Top" Width="754" Height="172" FontSize="80"/>
         <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="-25,331,0,0" VerticalAlignment="Top" Width="4837" RenderTransformOrigin="0.5,0.5">
@@ -26,7 +26,17 @@
             </Border.RenderTransform>
         </Border>
         <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="0,554,0,0" VerticalAlignment="Top" Width="4812"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,564,0,0" TextWrapping="Wrap" Text="Foco" VerticalAlignment="Top" Width="785" Height="184" FontSize="80"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,554,0,0" TextWrapping="Wrap" Text="Foco" VerticalAlignment="Top" Width="785" Height="194" FontSize="80"/>
+        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="0,748,0,0" VerticalAlignment="Top" Width="4802"/>
+        <TextBlock HorizontalAlignment="Left" Height="179" Margin="10,758,0,0" TextWrapping="Wrap" Text="Descripción:" VerticalAlignment="Top" Width="795" FontSize="80"/>
+        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="-2,937,0,0" VerticalAlignment="Top" Width="4814"/>
+        <TextBlock HorizontalAlignment="Left" Height="189" Margin="8,947,0,0" TextWrapping="Wrap" Text="Actividades:" VerticalAlignment="Top" Width="797" FontSize="80"/>
+        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="-2,1136,0,0" VerticalAlignment="Top" Width="4804"/>
+        <TextBlock HorizontalAlignment="Left" Height="194" Margin="-2,1146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="797" FontSize="80"><Run Text="Índice de entrega:"/><Run Text=" (%)"/></TextBlock>
+        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="-2,1340,0,0" VerticalAlignment="Top" Width="4804"/>
+        <TextBlock TextWrapping="Wrap" Text="Inicio de Proyecto/ Final del Proyecto" Margin="10,1350,4017,148" FontSize="80"/>
+        <Border BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="5" Margin="-2,1547,0,0" VerticalAlignment="Top" Width="4804"/>
+        <TextBlock HorizontalAlignment="Left" Height="192" Margin="10,1557,0,0" TextWrapping="Wrap" Text="Presupuesto:" VerticalAlignment="Top" Width="796" FontSize="80"/>
 
     </Grid>
 </Window>
