@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ptimera_wpf"
         mc:Ignorable="d"
-        Title="Proyectos" Height="450" Width="800">
-    <Grid x:Name="Button_eliminar">
+        Title="Proyectos" Height="293.567" Width="658.804">
+    <Grid x:Name="Button_eliminar" Margin="0,0,3.8,-3">
         <Button x:Name="Button_crear" Content="Crear proyecto" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Width="129" Click="Button_Crear_Click"/>
         <Button x:Name="Button_modificar" Content="Modificar proyecto" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="129"/>
         <Button x:Name="Button_Eliminar" Content="Eliminar proyecto" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="129"/>
