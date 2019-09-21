@@ -23,6 +23,8 @@ namespace ptimera_wpf
         {
             InitializeComponent();
         }
-        
+    }
+}
 
-      
+
+
