@@ -15,16 +15,15 @@ using System.Windows.Shapes;
 namespace ptimera_wpf
 {
     /// <summary>
-    /// Lógica de interacción para WindowInfo.xaml
+    /// Lógica de interacción para Window2.xaml
     /// </summary>
-    public partial class WindowInfo : Window
+    public partial class Window2 : Window
     {
-        public WindowInfo()
+        public Window2()
         {
             InitializeComponent();
         }
+
+        
     }
 }
-
-
-

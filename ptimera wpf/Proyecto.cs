@@ -12,6 +12,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                NombreProyecto = value;
             }
         }
 
@@ -20,6 +21,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                AreaProyecto = value;
             }
         }
 
@@ -28,6 +30,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                ActividadProyecto = value;
             }
         }
 
@@ -36,6 +39,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                IndiceDeCompletición = value;
             }
         }
 
@@ -44,6 +48,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                FechaInicio = value;
             }
         }
 
@@ -52,6 +57,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                FechaFinalización = value;
             }
         }
 
@@ -60,6 +66,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                Presupuesto = value;
             }
         }
 
@@ -68,6 +75,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                EmpresaSolicitadora = value;
             }
         }
 
@@ -76,6 +84,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                PagoPorParteEmpresa = value;
             }
         }
 
@@ -84,6 +93,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                PagoPorParteEmpresa = value;
             }
         }
 
@@ -92,6 +102,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                FocoProyecto = value;
             }
         }
 
@@ -100,6 +111,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                DescripciónProyecto = value;
             }
         }
 
@@ -108,6 +120,7 @@ namespace ptimera_wpf
             get => default;
             set
             {
+                Investigador = value;
             }
         }
 
