@@ -19,7 +19,8 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <Image Grid.ColumnSpan="2" Margin="0,0,-3.4,-25" Source="XP.png" Stretch="Fill"/>
+
+        <Image Margin="0,0,-13,-33" Source="Colo gradient.png" Stretch="Fill" Grid.ColumnSpan="2"/>
 
         <Button x:Name="Boton_Salir" Content="salir" HorizontalAlignment="Left" Margin="428.4,0,-503.4,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" Height="19"/>
         <Label x:Name="label_usuario" Content="usuario: " HorizontalAlignment="Left" Margin="49,31,0,0" VerticalAlignment="Top" Height="24" Width="73" FontFamily="Microsoft JhengHei"/>
@@ -30,7 +31,7 @@
         <Button x:Name="Button_salir" Content="Salir" HorizontalAlignment="Left" Margin="158,126,0,0" VerticalAlignment="Top" Width="75" Click="Button_salir_Click" Height="19"/>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="277,88,0,0"/>
         <Image Margin="281,101,9.6,10" Source="Escudo_Upb.jpg" Stretch="Fill"/>
-        <Image Margin="286,10,18.6,105" Source="J__C_Solutions.png" Stretch="Fill"/>
+        <Image Margin="284,10,19,103" Source="J__C_Solutions.png" Stretch="Fill"/>
 
     </Grid>
 </Window>

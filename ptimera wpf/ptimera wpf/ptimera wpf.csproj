@@ -120,5 +120,8 @@
   <ItemGroup>
     <Resource Include="J__C_Solutions.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Colo gradient.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

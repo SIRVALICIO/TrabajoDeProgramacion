@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Window2" Height="947.477" Width="1178.154">
     <Grid HorizontalAlignment="Left" Width="1152" Height="912" VerticalAlignment="Top">
+        <Image Margin="0,0,-24,0" Source="Colo gradient.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
         <ListBox x:Name="ListBox_Archivos" HorizontalAlignment="Left" Height="645" Margin="10,10,0,0" VerticalAlignment="Top" Width="317" SelectionChanged="ListBox_Archivos_SelectionChanged"/>
         <ComboBox x:Name="ComboBox_Elecciones" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="10,669,0,0" SelectionChanged="ComboBox_Elecciones_SelectionChanged"/>
         <StackPanel Margin="365,10,0,0" HorizontalAlignment="Left" Width="768" Height="884" VerticalAlignment="Top">
