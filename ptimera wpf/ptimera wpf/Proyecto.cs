@@ -6,124 +6,144 @@ using System.Text;
 namespace ptimera_wpf
 {
     public class Proyecto
+
     {
+        private string nombreProyecto;
+        private string areaProyecto;
+        private string actividadProyecto;
+        private string indiceCompletaion;
+        private string fechaInicio;
+        private string fechaFinalizacion;
+        private string presupuesto;
+        private string empresaSolicitadora;
+        private string pagoPorParteUpb;
+        private string pagoPorParteEmpresa;
+        private string descripcionProyecto;
+        private string investigador;
         public string NombreProyecto
         {
-            get => default;
+            get { return nombreProyecto; }
             set
             {
-                NombreProyecto = value;
+                nombreProyecto = value;
             }
         }
 
         public string AreaProyecto
         {
-            get => default;
+            get
+            {
+                return areaProyecto;
+            }
             set
             {
-                AreaProyecto = value;
+                if (value == null)
+                    areaProyecto = "";
+                else
+                    areaProyecto = value;
             }
         }
 
         public string ActividadProyecto
         {
-            get => default;
+            get { return actividadProyecto; }
             set
             {
-                ActividadProyecto = value;
+                actividadProyecto = value;
             }
         }
 
         public string IndiceDeCompletición
         {
-            get => default;
+            get { return indiceCompletaion; }
             set
             {
-                IndiceDeCompletición = value;
+                indiceCompletaion = value;
             }
         }
 
         public string FechaInicio
         {
-            get => default;
+            get
+            {
+                return fechaInicio;
+            }
             set
             {
-                FechaInicio = value;
+                fechaInicio = value;
             }
         }
 
         public string FechaFinalización
         {
-            get => default;
+            get { return fechaFinalizacion; }
             set
             {
-                FechaFinalización = value;
+                fechaFinalizacion = value;
             }
         }
 
         public string Presupuesto
         {
-            get => default;
+            get { return presupuesto; }
             set
             {
-                Presupuesto = value;
+                presupuesto = value;
             }
         }
 
         public string EmpresaSolicitadora
         {
-            get => default;
+            get { return empresaSolicitadora; }
             set
             {
-                EmpresaSolicitadora = value;
+                empresaSolicitadora = value;
             }
         }
 
         public string PagoPorParteUPB
         {
-            get => default;
+            get { return pagoPorParteUpb; }
             set
             {
-                PagoPorParteEmpresa = value;
+                pagoPorParteUpb = value;
             }
         }
 
         public string PagoPorParteEmpresa
         {
-            get => default;
+            get { return pagoPorParteEmpresa; }
             set
             {
-                PagoPorParteEmpresa = value;
-            }
-        }
-
-        public string FocoProyecto
-        {
-            get => default;
-            set
-            {
-                FocoProyecto = value;
+                pagoPorParteEmpresa = value;
             }
         }
 
         public string DescripciónProyecto
         {
-            get => default;
+            get { return descripcionProyecto; }
             set
             {
-                DescripciónProyecto = value;
+                descripcionProyecto = value;
             }
         }
 
         public string Investigador
         {
-            get => default;
+            get { return investigador; }
             set
             {
-                Investigador = value;
+                investigador = value;
             }
         }
 
+        public override string ToString()
+        {
+            return this.nombreProyecto;
+
+
+
+        }
         public void GuardarInfo()
         {
 

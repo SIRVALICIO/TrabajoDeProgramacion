@@ -81,6 +81,9 @@ namespace ptimera_wpf
              form_login_main.Close();
         }
 
-        
+        private void TexBox_contraseña_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
