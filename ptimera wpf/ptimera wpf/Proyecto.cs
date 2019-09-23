@@ -64,8 +64,7 @@ namespace ptimera_wpf
 
         public string FechaInicio
         {
-            get
-            {
+            get {
                 return fechaInicio;
             }
             set

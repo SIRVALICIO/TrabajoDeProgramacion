@@ -29,7 +29,7 @@ namespace ptimera_wpf
         Regex RegexLetras = new Regex(" ^[a - zA - Z\\s] * $");
         Regex negativo = new Regex("^[-]*$");
         Regex RegexPorcentaje = new Regex("^[%]*$");
-
+        
         public Window2()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace ptimera_wpf
         }
         private void initializeVariables()
         {
-
+            
             fillComboBoxes();
             #region
             string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
@@ -62,11 +62,11 @@ namespace ptimera_wpf
             }
         }
 
-
+       
 
         private void TextBox_investigador_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!RegexLetras.IsMatch(TextBox_investigador.Text))
+            if(!RegexLetras.IsMatch(TextBox_investigador.Text))
             {
                 MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenas el campo");
                 return;
@@ -94,8 +94,8 @@ namespace ptimera_wpf
         }
 
         private void TextBox_inico_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (RegexValores.IsMatch(TextBox_inico.Text) || negativo.IsMatch(TextBox_inico.Text))
+        { 
+            if(RegexValores.IsMatch(TextBox_inico.Text) || negativo.IsMatch(TextBox_inico.Text))
             {
                 MessageBox.Show("Solo se admitiran fechas validas");
 
@@ -112,8 +112,8 @@ namespace ptimera_wpf
             {
                 TextBox_enterga.Text = "Aun por especificar.";
             }
-
-            else if (RegexValores.IsMatch(TextBox_enterga.Text) || negativo.IsMatch(TextBox_enterga.Text))
+           
+            else  if (RegexValores.IsMatch(TextBox_enterga.Text) || negativo.IsMatch(TextBox_enterga.Text))
             {
                 MessageBox.Show("Solo se admitiran fechas validas");
 
@@ -123,12 +123,10 @@ namespace ptimera_wpf
 
         private void TexBox_Porcentaje_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text))
-            {
+            if(RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text)){
                 MessageBox.Show("El valor debe ser porcentual, por lo cual no puede ser negativo");
             }
-            else if (!RegexValores.IsMatch(TexBox_Porcentaje.Text) && !RegexPorcentaje.IsMatch(TexBox_Porcentaje.Text))
-            {
+            else if (!RegexValores.IsMatch(TexBox_Porcentaje.Text) && !RegexPorcentaje.IsMatch(TexBox_Porcentaje.Text)) {
                 TexBox_Porcentaje.Text = TexBox_Porcentaje.Text + "%";
 
             }
@@ -136,8 +134,7 @@ namespace ptimera_wpf
 
         private void TextBox_Empresa_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!Desripcion.IsMatch(TextBox_Empresa.Text))
-            {
+            if (!Desripcion.IsMatch(TextBox_Empresa.Text)) {
                 MessageBox.Show("El nombre no tiene caracter valido para ser considerado como tal");
 
             }
@@ -150,12 +147,11 @@ namespace ptimera_wpf
 
         private void TextBox_Presupuesto_LostFocus(object sender, RoutedEventArgs e)
         {
-
-            if (string.IsNullOrEmpty(TextBox_Presupuesto.Text))
+            
+            if(string.IsNullOrEmpty(TextBox_Presupuesto.Text))
             {
                 TextBox_Presupuesto.Text = "0";
-            }
-            else if (RegexValores.IsMatch(TextBox_Presupuesto.Text) || negativo.IsMatch(TextBox_Presupuesto.Text))
+            }else if (RegexValores.IsMatch(TextBox_Presupuesto.Text) || negativo.IsMatch(TextBox_Presupuesto.Text))
             {
                 MessageBox.Show("EL presupuesto solo puede ser de caracter numerico positivo");
             }
@@ -163,12 +159,12 @@ namespace ptimera_wpf
 
         private void TextBox_presupuestoEmpresa_LostFocus(object sender, RoutedEventArgs e)
         {
-
+         
             if (string.IsNullOrEmpty(TextBox_presupuestoEmpresa.Text))
             {
                 TextBox_presupuestoEmpresa.Text = "0";
             }
-            else if (RegexValores.IsMatch(TextBox_presupuestoEmpresa.Text) || negativo.IsMatch(TextBox_presupuestoEmpresa.Text))
+            else if(RegexValores.IsMatch(TextBox_presupuestoEmpresa.Text) || negativo.IsMatch(TextBox_presupuestoEmpresa.Text))
             {
                 MessageBox.Show("EL presupuesto solo puede ser de caracter numerico positivo");
             }
@@ -188,8 +184,7 @@ namespace ptimera_wpf
 
         private void TextBox_actividades_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBox_actividades.Text))
-            {
+            if (string.IsNullOrEmpty(TextBox_actividades.Text)){
                 TextBox_actividades.Text = "Actividades a un por definir";
             }
             else if (!Desripcion.IsMatch(TextBox_actividades.Text))
@@ -209,10 +204,10 @@ namespace ptimera_wpf
         {
 
             StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-
+            
             sw.Close();
             string save = JsonConvert.SerializeObject(proyectos);
-            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt", save);
+            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt",save);
 
 
         }
@@ -234,7 +229,7 @@ namespace ptimera_wpf
         }
         private void fillComboBoxes()
         {
-
+          
             List<string> modes = new List<string>();
             modes.Add("Consulta");
             modes.Add("Editar");
@@ -252,10 +247,10 @@ namespace ptimera_wpf
 
             StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt", Encoding.UTF8);
             proyectos = new List<Proyecto>();
-
+                      
             sr.Close();
         }
-
+      
 
         private void modoConsulta()
         {
@@ -263,16 +258,16 @@ namespace ptimera_wpf
             string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
             proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
-            TextBox_titulo.IsReadOnly = true;
+            TextBox_titulo.IsReadOnly=true;
             TextBox_investigador.IsReadOnly = true;
             TextBox_area.IsReadOnly = true;
             TextBox_inico.IsReadOnly = true;
             TextBox_enterga.IsReadOnly = true;
-            TexBox_Porcentaje.IsReadOnly = true;
-            ListBox_Archivos.IsEnabled = true;
+            TexBox_Porcentaje.IsReadOnly= true;
+            ListBox_Archivos.IsEnabled= true;
             TextBox_Empresa.IsReadOnly = true;
             TextBox_Presupuesto.IsReadOnly = true;
-            TextBox_presupuestoEmpresa.IsReadOnly = true;
+            TextBox_presupuestoEmpresa.IsReadOnly= true;
             TextBox_Peresupuesto3ros.IsReadOnly = true;
             TextBox_descripcion.IsReadOnly = true;
             TextBox_actividades.IsReadOnly = true;
@@ -301,8 +296,8 @@ namespace ptimera_wpf
             TextBox_Peresupuesto3ros.IsReadOnly = true;
             TextBox_descripcion.IsReadOnly = false;
             TextBox_actividades.IsReadOnly = true;
-
-
+            
+            
             ButtonCambio.Content = "Guardar";
             ButtonCambio.Visibility = Visibility.Visible;
             ButtonCambio.IsEnabled = true;
@@ -331,11 +326,11 @@ namespace ptimera_wpf
             ButtonCambio.Content = "Guardar";
             ButtonCambio.Visibility = Visibility.Visible;
             ButtonCambio.IsEnabled = true;
-
+            
 
 
             limpiar();
-
+            
 
         }
         private void modoEliminar()
@@ -353,8 +348,8 @@ namespace ptimera_wpf
             TextBox_Peresupuesto3ros.IsEnabled = true;
             TextBox_descripcion.IsEnabled = true;
             TextBox_actividades.IsEnabled = true;
-
-            ButtonCambio.Content = "Eliminar";
+       
+            ButtonCambio.Content= "Eliminar";
             ButtonCambio.Visibility = Visibility.Visible;
             ButtonCambio.IsEnabled = true;
 
@@ -375,30 +370,29 @@ namespace ptimera_wpf
             TextBox_descripcion.Text = "";
             TextBox_actividades.Text = "";
         }
+        
 
-
-
+        
 
 
 
         private void cargarEmpleadoSeleccionado()
         {
             limpiar();
-            if (ListBox_Archivos.SelectedIndex > -1)
-            {
-                Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
-                TextBox_titulo.Text = proyectoTemporal.NombreProyecto.ToString();
-                TextBox_investigador.Text = proyectoTemporal.Investigador.ToString();
-                TextBox_area.Text = proyectoTemporal.AreaProyecto.ToString();
-                TextBox_inico.Text = proyectoTemporal.FechaInicio.ToString();
-                TextBox_enterga.Text = proyectoTemporal.FechaFinalización.ToString();
-                TexBox_Porcentaje.Text = proyectoTemporal.IndiceDeCompletición.ToString();
-                TextBox_Empresa.Text = proyectoTemporal.EmpresaSolicitadora.ToString();
-                TextBox_Presupuesto.Text = proyectoTemporal.Presupuesto.ToString();
-                TextBox_presupuestoEmpresa.Text = proyectoTemporal.PagoPorParteEmpresa.ToString();
-                TextBox_Peresupuesto3ros.Text = proyectoTemporal.PagoPorParteUPB.ToString();
-                TextBox_descripcion.Text = proyectoTemporal.DescripciónProyecto.ToString();
-                TextBox_actividades.Text = proyectoTemporal.ActividadProyecto.ToString();
+            if (ListBox_Archivos.SelectedIndex > -1) { 
+            Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
+            TextBox_titulo.Text = proyectoTemporal.NombreProyecto.ToString();
+            TextBox_investigador.Text = proyectoTemporal.Investigador.ToString();
+            TextBox_area.Text = proyectoTemporal.AreaProyecto.ToString();
+            TextBox_inico.Text =proyectoTemporal.FechaInicio.ToString();
+            TextBox_enterga.Text = proyectoTemporal.FechaFinalización.ToString();
+            TexBox_Porcentaje.Text = proyectoTemporal.IndiceDeCompletición.ToString();
+            TextBox_Empresa.Text = proyectoTemporal.EmpresaSolicitadora.ToString();
+            TextBox_Presupuesto.Text = proyectoTemporal.Presupuesto.ToString();
+            TextBox_presupuestoEmpresa.Text = proyectoTemporal.PagoPorParteEmpresa.ToString();
+            TextBox_Peresupuesto3ros.Text = proyectoTemporal.PagoPorParteUPB.ToString();
+            TextBox_descripcion.Text = proyectoTemporal.DescripciónProyecto.ToString();
+            TextBox_actividades.Text = proyectoTemporal.ActividadProyecto.ToString();
 
             }
         }
@@ -482,4 +476,4 @@ namespace ptimera_wpf
 
 
 
-}
+    }
