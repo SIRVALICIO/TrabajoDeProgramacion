@@ -5,36 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ptimera_wpf"
         mc:Ignorable="d"
-        Title="Window2" Height="947.477" Width="1178.154">
-    <Grid HorizontalAlignment="Left" Width="1152" Height="912" VerticalAlignment="Top">
-        <ListBox x:Name="ListBox_Archivos" HorizontalAlignment="Left" Height="645" Margin="10,10,0,0" VerticalAlignment="Top" Width="317" SelectionChanged="ListBox_Archivos_SelectionChanged"/>
-        <ComboBox x:Name="ComboBox_Elecciones" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="10,669,0,0" SelectionChanged="ComboBox_Elecciones_SelectionChanged"/>
-        <StackPanel Margin="365,10,0,0" HorizontalAlignment="Left" Width="768" Height="884" VerticalAlignment="Top">
-            <TextBlock x:Name="TextBlockProyecto" TextWrapping="Wrap" Text="Nombre del proyecto:" Margin="11,0,0,0" HorizontalAlignment="Left" Width="213"/>
-            <TextBox x:Name="TextBox_titulo" Height="23" TextWrapping="Wrap" Margin="12,0,247.6,0" LostFocus="TextBox_titulo_LostFocus"/>
-            <TextBlock x:Name="TextBlock_nombre" TextWrapping="Wrap" HorizontalAlignment="Right" Width="146" Margin="0,0,610,0"><Run Text="Investigador"/><Run Text=":"/></TextBlock>
-            <TextBox x:Name="TextBox_investigador" Height="23" TextWrapping="Wrap" Margin="0,0,248,0" HorizontalAlignment="Right" Width="508" LostFocus="TextBox_investigador_LostFocus"/>
-            <TextBlock x:Name="TextBlock_Area" TextWrapping="Wrap" Text="Area del proyecto: " VerticalAlignment="Top" HorizontalAlignment="Right" Width="146" Margin="0,0,610,0"/>
-            <TextBox x:Name="TextBox_area" Height="24" TextWrapping="Wrap" HorizontalAlignment="Right" Width="508" Margin="0,0,248,0" LostFocus="TextBox_area_LostFocus"/>
-            <TextBlock x:Name="TextBlock_inicio" TextWrapping="Wrap" HorizontalAlignment="Right" Width="146" Margin="0,0,610,0"><Run Text="Fecha de inicio:"/><Run Text=" (  /  /  )"/></TextBlock>
-            <TextBox x:Name="TextBox_inico" Height="24" TextWrapping="Wrap" HorizontalAlignment="Right" Width="135" Margin="0,0,621,0" LostFocus="TextBox_inico_LostFocus"/>
-            <TextBlock x:Name="TextBlock_Entrega" TextWrapping="Wrap" Margin="0,0,610,0" HorizontalAlignment="Right" Width="146"><Run Text="Fecha de entrega:"/><Run Text=" (  /  /  )"/></TextBlock>
-            <TextBox x:Name="TextBox_enterga" Height="24" TextWrapping="Wrap" HorizontalAlignment="Right" Width="135" Margin="0,0,621,0" TextChanged="TextBox_enterga_TextChanged"/>
-            <TextBlock x:Name="TextBlockPorcentaje" TextWrapping="Wrap" Text="Porcentaje de entrega:" HorizontalAlignment="Left" Margin="12,0,0,0" Width="142"/>
-            <TextBox x:Name="TexBox_Porcentaje" Height="24" TextWrapping="Wrap" Margin="12,0,620.6,0" LostFocus="TexBox_Porcentaje_LostFocus"/>
-            <TextBlock x:Name="TextBlock_empresa" TextWrapping="Wrap" Text="Empresa solicitante: " Margin="12,0,498.4,0"/>
-            <TextBox x:Name="TextBox_Empresa" Height="23" TextWrapping="Wrap" Margin="12,0,247.4,0" LostFocus="TextBox_Empresa_LostFocus"/>
-            <TextBlock TextWrapping="Wrap" Margin="12,0,498.4,0" Height="21"><Run Text="Presupuesto"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
-            <TextBox x:Name="TextBox_Presupuesto" Height="24" TextWrapping="Wrap" Margin="12,0,0,0" HorizontalAlignment="Left" Width="258" LostFocus="TextBox_Presupuesto_LostFocus"/>
-            <TextBlock x:Name="TextBLock_presupuestoEmpresa" TextWrapping="Wrap" Text="Parte dada por la empresa:" Margin="12,0,498.4,0"/>
-            <TextBox x:Name="TextBox_presupuestoEmpresa" Height="24" TextWrapping="Wrap" Margin="12,0,498,0" LostFocus="TextBox_presupuestoEmpresa_LostFocus"/>
-            <TextBlock x:Name="TextBlock_presupuesto3ros" TextWrapping="Wrap" Margin="12,0,498.4,0"><Run Text="Parte dada"/><Run Text=" por terceros/upb:"/></TextBlock>
-            <TextBox x:Name="TextBox_Peresupuesto3ros" Height="24" TextWrapping="Wrap" Margin="12,0,498,0" LostFocus="TextBox_Peresupuesto3ros_LostFocus"/>
-            <TextBlock x:Name="TextBlock_Actividades" TextWrapping="Wrap" Text="Actividades a realizar: " Margin="12,0,498.4,0"/>
-            <TextBox x:Name="TextBox_actividades" Height="154" TextWrapping="Wrap" HorizontalAlignment="Right" Margin="0,0,10,0" Width="746" LostFocus="TextBox_actividades_LostFocus"/>
-            <TextBlock x:Name="TextBlock_Descripcion" TextWrapping="Wrap" Text="Descripcion del proyecto: " Margin="12,0,498.4,0"/>
-            <TextBox x:Name="TextBox_descripcion" Height="291" TextWrapping="Wrap" Margin="12,0,10.4,0" LostFocus="TextBox_descripcion_LostFocus"/>
-        </StackPanel>
-        <Button x:Name="ButtonCambio" Content="" HorizontalAlignment="Left" Margin="226,672,0,0" VerticalAlignment="Top" Width="75" IsVisibleChanged="True" Click="ButtonCambio_Click"/>
+        Title="Window2" Height="901.877" Width="1178.154">
+    <Grid HorizontalAlignment="Left" Width="1152" Height="864" VerticalAlignment="Top">
+
+        <ListBox x:Name="ListBox_Archivos" HorizontalAlignment="Left" Height="645" Margin="10,10,0,0" VerticalAlignment="Top" Width="317" SelectionChanged="ListBox_Archivos_SelectionChanged" Grid.RowSpan="2"/>
+        <ComboBox x:Name="ComboBox_Elecciones" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="23,687,0,0" SelectionChanged="ComboBox_Elecciones_SelectionChanged"/>
+
+        <TextBlock x:Name="TextBlockProyecto" TextWrapping="Wrap" Text="Nombre del proyecto:" Margin="396,27,0,0" HorizontalAlignment="Left" Width="213" Height="21" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_titulo" Height="23" TextWrapping="Wrap" Margin="397,48,0,0" LostFocus="TextBox_titulo_LostFocus" HorizontalAlignment="Left" Width="508" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_nombre" TextWrapping="Wrap" HorizontalAlignment="Left" Width="148" Margin="396,71,0,0" Height="23" VerticalAlignment="Top"><Run Text="Investigador"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="TextBox_investigador" Height="23" TextWrapping="Wrap" Margin="396,91,0,0" HorizontalAlignment="Left" Width="510" LostFocus="TextBox_investigador_LostFocus" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_Area" TextWrapping="Wrap" Text="Area del proyecto: " HorizontalAlignment="Left" Width="146" Margin="396,119,0,0" Height="16" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_area" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" Width="508" Margin="396,135,0,0" LostFocus="TextBox_area_LostFocus" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_inicio" TextWrapping="Wrap" HorizontalAlignment="Left" Width="200" Margin="396,159,0,0" Height="26" VerticalAlignment="Top"><Run Text="Fecha de inicio:"/><Run Text=" ( "/><Run Text="DIa/"/><Run Text="Mes/Año"/><Run Text=" )"/></TextBlock>
+        <TextBlock x:Name="TextBlock_Entrega" TextWrapping="Wrap" Margin="396,209,0,0" HorizontalAlignment="Left" Width="213" Height="19" VerticalAlignment="Top"><Run Text="Fecha de entrega:"/><Run Text=" ( "/><Run Text="DIa"/><Run Text=" /"/><Run Text="Mes"/><Run Text="  /"/><Run Text="Año"/><Run Text="  )"/></TextBlock>
+        <TextBlock x:Name="TextBlockPorcentaje" TextWrapping="Wrap" Text="Porcentaje de entrega:" HorizontalAlignment="Left" Margin="396,257,0,0" Width="142" Height="26" VerticalAlignment="Top"/>
+        <TextBox x:Name="TexBox_Porcentaje" Height="24" TextWrapping="Wrap" Margin="396,278,0,0" LostFocus="TexBox_Porcentaje_LostFocus" HorizontalAlignment="Left" Width="520" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_empresa" TextWrapping="Wrap" Text="Empresa solicitante: " Margin="396,302,0,0" HorizontalAlignment="Left" Width="201" Height="19" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_Empresa" Height="23" TextWrapping="Wrap" Margin="396,321,0,0" LostFocus="TextBox_Empresa_LostFocus" HorizontalAlignment="Left" Width="509" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_Presupuesto" TextWrapping="Wrap" Margin="396,344,114,499" Height="21"><Run Text="Presupuesto"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="TextBox_Presupuesto" Height="24" TextWrapping="Wrap" Margin="396,365,0,0" HorizontalAlignment="Left" Width="248" LostFocus="TextBox_Presupuesto_LostFocus" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBLock_presupuestoEmpresa" TextWrapping="Wrap" Text="Parte dada por la empresa:" Margin="396,389,0,0" HorizontalAlignment="Left" Width="180" Height="17" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_presupuestoEmpresa" Height="24" TextWrapping="Wrap" Margin="395,406,0,0" LostFocus="TextBox_presupuestoEmpresa_LostFocus" HorizontalAlignment="Left" Width="201" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_presupuesto3ros" TextWrapping="Wrap" Margin="396,430,0,0" HorizontalAlignment="Left" Width="201" Height="26" VerticalAlignment="Top"><Run Text="Parte dada"/><Run Text=" por terceros/upb:"/></TextBlock>
+        <TextBox x:Name="TextBox_Peresupuesto3ros" Height="24" TextWrapping="Wrap" Margin="395,456,0,0" LostFocus="TextBox_Peresupuesto3ros_LostFocus" VerticalAlignment="Top" HorizontalAlignment="Left" Width="201"/>
+        <TextBlock x:Name="TextBlock_Actividades" TextWrapping="Wrap" Text="Actividades a realizar: " Margin="395,480,0,0" HorizontalAlignment="Left" Width="201" Height="31" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_actividades" TextWrapping="Wrap" Margin="396,511,0,0" LostFocus="TextBox_actividades_LostFocus" HorizontalAlignment="Left" Width="688" Height="105" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_Descripcion" TextWrapping="Wrap" Text="Descripcion del proyecto: " Margin="396,621,0,0" HorizontalAlignment="Left" Width="258" Height="25" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_descripcion" TextWrapping="Wrap" Margin="396,646,0,0" LostFocus="TextBox_descripcion_LostFocus" Height="152" VerticalAlignment="Top" HorizontalAlignment="Left" Width="688"/>
+
+        <Button x:Name="ButtonCambio" Content="" HorizontalAlignment="Left" Margin="202,687,0,0" VerticalAlignment="Top" Width="75" IsVisibleChanged="True" Click="ButtonCambio_Click"/>
+        <DatePicker x:Name="DatePicker_inicio" HorizontalAlignment="Left" Margin="397,185,0,0" VerticalAlignment="Top" Width="147"/>
+        <DatePicker x:Name="DatePicker_entrega" HorizontalAlignment="Left" Margin="397,228,0,0" VerticalAlignment="Top" Height="28" Width="147"/>
     </Grid>
 </Window>

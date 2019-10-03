@@ -23,12 +23,12 @@ namespace ptimera_wpf
     public partial class Window2 : Window
     {
         private static List<Proyecto> proyectos;
-        Regex RegexValores = new Regex("^\\D");
-        Regex Desripcion = new Regex("^\\w*$");
+        public static Regex RegexValores = new Regex("^\\D");
+        public static Regex Desripcion = new Regex("^\\w*$");
 
-        Regex RegexLetras = new Regex(" ^[a - zA - Z\\s] * $");
-        Regex negativo = new Regex("^[-]*$");
-        Regex RegexPorcentaje = new Regex("^[%]*$");
+        public static Regex RegexLetras = new Regex(" ^[a - zA - Z\\s] * $");
+        public static Regex negativo = new Regex("^[-]*$");
+        public static Regex RegexPorcentaje = new Regex("^[%]*$");
         
         public Window2()
         {
@@ -41,24 +41,33 @@ namespace ptimera_wpf
             fillComboBoxes();
             #region
             string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-            proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
+            
+            if (read==null|| read=="")
+            {
+                proyectos = new List<Proyecto>();
+                MessageBox.Show("Este es el error de null");
+                
+            }
+            else
+            
             #endregion
             ListBox_Archivos.ItemsSource = proyectos;
-            MessageBox.Show(proyectos.ElementAt(0).IndiceDeCompletición);
+
 
         }
 
         private void TextBox_titulo_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!RegexLetras.IsMatch(TextBox_titulo.Text))
-            {
-                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenas el campo");
-                return;
-            }
-            else if (string.IsNullOrWhiteSpace(TextBox_titulo.Text))
+            
+             if (string.IsNullOrWhiteSpace(TextBox_titulo.Text))
             {
                 MessageBox.Show("El campo esta vacio, por favor llenelo");
-                return;
+               
+            }
+            else if (RegexLetras.IsMatch(TextBox_titulo.Text))
+            {
+                MessageBox.Show("El nombre del proyecto debe de estar en letras, por favor corriga el campo");
+
             }
         }
 
@@ -66,60 +75,35 @@ namespace ptimera_wpf
 
         private void TextBox_investigador_LostFocus(object sender, RoutedEventArgs e)
         {
-            if(!RegexLetras.IsMatch(TextBox_investigador.Text))
-            {
-                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenas el campo");
-                return;
-            }
-            else if (string.IsNullOrWhiteSpace(TextBox_investigador.Text))
+            
+            if (string.IsNullOrWhiteSpace(TextBox_investigador.Text))
             {
                 MessageBox.Show("El campo esta vacio, por favor llenelo");
-                return;
+                
+            }
+            else if(RegexLetras.IsMatch(TextBox_investigador.Text))
+            {
+                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenas el campo");
+
             }
 
         }
 
         private void TextBox_area_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!RegexLetras.IsMatch(TextBox_area.Text))
-            {
-                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenas el campo");
-                return;
-            }
-            else if (string.IsNullOrWhiteSpace(TextBox_area.Text))
+            
+            if (string.IsNullOrWhiteSpace(TextBox_area.Text))
             {
                 MessageBox.Show("El campo esta vacio, por favor llenelo");
-                return;
+                
+            }else if (RegexLetras.IsMatch(TextBox_area.Text))
+            {
+                MessageBox.Show("El area del proyecto debe estar lleno, por favor corrija");
+
             }
         }
 
-        private void TextBox_inico_LostFocus(object sender, RoutedEventArgs e)
-        { 
-            if(RegexValores.IsMatch(TextBox_inico.Text) || negativo.IsMatch(TextBox_inico.Text))
-            {
-                MessageBox.Show("Solo se admitiran fechas validas");
-
-            }
-            else if (string.IsNullOrEmpty(TextBox_inico.Text))
-            {
-                MessageBox.Show("El inicio del proyecto debe de estar especificado. ");
-            }
-        }
-
-        private void TextBox_enterga_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(TextBox_enterga.Text))
-            {
-                TextBox_enterga.Text = "Aun por especificar.";
-            }
-           
-            else  if (RegexValores.IsMatch(TextBox_enterga.Text) || negativo.IsMatch(TextBox_enterga.Text))
-            {
-                MessageBox.Show("Solo se admitiran fechas validas");
-
-            }
-
-        }
+       
 
         private void TexBox_Porcentaje_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -215,7 +199,9 @@ namespace ptimera_wpf
 
         private void fillListBox()
         {
-            ListBox_Archivos.Items.Clear();
+            ListBox_Archivos.ItemsSource = null;
+            ListBox_Archivos.ItemsSource = proyectos;
+            /*
             if (proyectos.Count > 0)
             {
                 foreach (Proyecto proy in proyectos)
@@ -225,7 +211,7 @@ namespace ptimera_wpf
 
                 ListBox_Archivos.SelectedIndex = 0;
             }
-
+            */
         }
         private void fillComboBoxes()
         {
@@ -245,12 +231,9 @@ namespace ptimera_wpf
         private void cargarEmpleados()
         {
 
-            StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt", Encoding.UTF8);
-            proyectos = new List<Proyecto>();
-                      
-            sr.Close();
+            
         }
-      
+
 
         private void modoConsulta()
         {
@@ -258,11 +241,11 @@ namespace ptimera_wpf
             string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
             proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
-            TextBox_titulo.IsReadOnly=true;
+            TextBox_titulo.IsReadOnly = true;
             TextBox_investigador.IsReadOnly = true;
             TextBox_area.IsReadOnly = true;
-            TextBox_inico.IsReadOnly = true;
-            TextBox_enterga.IsReadOnly = true;
+            DatePicker_inicio.IsEnabled = false;
+            DatePicker_entrega.IsEnabled = false;
             TexBox_Porcentaje.IsReadOnly= true;
             ListBox_Archivos.IsEnabled= true;
             TextBox_Empresa.IsReadOnly = true;
@@ -286,8 +269,8 @@ namespace ptimera_wpf
             TextBox_titulo.IsReadOnly = false;
             TextBox_investigador.IsReadOnly = false;
             TextBox_area.IsReadOnly = false;
-            TextBox_inico.IsReadOnly = false;
-            TextBox_enterga.IsReadOnly = true;
+            DatePicker_inicio.IsEnabled = true;
+            DatePicker_entrega.IsEnabled =true ;
             TexBox_Porcentaje.IsReadOnly = true;
             ListBox_Archivos.IsEnabled = true;
             TextBox_Empresa.IsReadOnly = false;
@@ -313,8 +296,8 @@ namespace ptimera_wpf
             TextBox_titulo.IsReadOnly = false;
             TextBox_investigador.IsReadOnly = false;
             TextBox_area.IsReadOnly = false;
-            TextBox_inico.IsReadOnly = false;
-            TextBox_enterga.IsReadOnly = false;
+            DatePicker_inicio.IsEnabled = true;
+            DatePicker_entrega.IsEnabled = true;
             TexBox_Porcentaje.IsReadOnly = false;
             ListBox_Archivos.IsEnabled = true;
             TextBox_Empresa.IsReadOnly = false;
@@ -338,8 +321,8 @@ namespace ptimera_wpf
             TextBox_titulo.IsReadOnly = true;
             TextBox_investigador.IsReadOnly = true; ;
             TextBox_area.IsReadOnly = true;
-            TextBox_inico.IsReadOnly = true;
-            TextBox_enterga.IsEnabled = true;
+            DatePicker_inicio.IsEnabled= false;
+            DatePicker_entrega.IsEnabled = false;
             TexBox_Porcentaje.IsEnabled = true;
             ListBox_Archivos.IsEnabled = true;
             TextBox_Empresa.IsEnabled = true;
@@ -360,8 +343,8 @@ namespace ptimera_wpf
             TextBox_titulo.Text = "";
             TextBox_investigador.Text = "";
             TextBox_area.Text = "";
-            TextBox_inico.Text = "";
-            TextBox_enterga.Text = "";
+            DatePicker_inicio.Text = "";
+            DatePicker_entrega.Text = "";
             TexBox_Porcentaje.Text = "";
             TextBox_Empresa.Text = "";
             TextBox_Presupuesto.Text = "";
@@ -384,8 +367,8 @@ namespace ptimera_wpf
             TextBox_titulo.Text = proyectoTemporal.NombreProyecto.ToString();
             TextBox_investigador.Text = proyectoTemporal.Investigador.ToString();
             TextBox_area.Text = proyectoTemporal.AreaProyecto.ToString();
-            TextBox_inico.Text =proyectoTemporal.FechaInicio.ToString();
-            TextBox_enterga.Text = proyectoTemporal.FechaFinalización.ToString();
+            DatePicker_inicio.Text =proyectoTemporal.FechaInicio.ToString();
+            DatePicker_entrega.Text = proyectoTemporal.FechaFinalización.ToString();
             TexBox_Porcentaje.Text = proyectoTemporal.IndiceDeCompletición.ToString();
             TextBox_Empresa.Text = proyectoTemporal.EmpresaSolicitadora.ToString();
             TextBox_Presupuesto.Text = proyectoTemporal.Presupuesto.ToString();
@@ -404,6 +387,7 @@ namespace ptimera_wpf
 
         private void ButtonCambio_Click(object sender, RoutedEventArgs e)
         {
+            
             if (ButtonCambio.Content.Equals("Eliminar"))
             {
                 proyectos.RemoveAt(ListBox_Archivos.SelectedIndex);
@@ -416,11 +400,13 @@ namespace ptimera_wpf
             {
                 {
                     Proyecto proyectosTemp = new Proyecto();
+                    proyectosTemp.IndiceDeCompletición = TexBox_Porcentaje.Text;
+                    proyectosTemp.EmpresaSolicitadora = TextBox_Empresa.Text;
                     proyectosTemp.NombreProyecto = TextBox_titulo.Text;
                     proyectosTemp.Investigador = TextBox_investigador.Text;
                     proyectosTemp.AreaProyecto = TextBox_area.Text;
-                    proyectosTemp.FechaInicio = TextBox_inico.Text;
-                    proyectosTemp.FechaFinalización = TextBox_enterga.Text;
+                    proyectosTemp.FechaInicio = DatePicker_inicio.Text;
+                    proyectosTemp.FechaFinalización = DatePicker_entrega.Text;
                     proyectosTemp.Presupuesto = TextBox_Presupuesto.Text;
                     proyectosTemp.PagoPorParteEmpresa = TextBox_presupuestoEmpresa.Text;
                     proyectosTemp.PagoPorParteUPB = TextBox_Peresupuesto3ros.Text;
