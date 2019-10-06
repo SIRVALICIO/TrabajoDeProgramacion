@@ -29,7 +29,7 @@ namespace ptimera_wpf
         public static Regex RegexLetras = new Regex(" ^[a - zA - Z\\s] * $");
         public static Regex negativo = new Regex("^[-]*$");
         public static Regex RegexPorcentaje = new Regex("^[%]*$");
-        
+
         public Window2()
         {
             InitializeComponent();
@@ -37,53 +37,56 @@ namespace ptimera_wpf
         }
         private void initializeVariables()
         {
-            
+
             fillComboBoxes();
             #region
             string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-            
-            if (read==null|| read=="")
+
+            if (read == null || read == "")
             {
                 proyectos = new List<Proyecto>();
                 MessageBox.Show("Este es el error de null");
-                
+
             }
             else
-            
-            #endregion
-            ListBox_Archivos.ItemsSource = proyectos;
+
+                #endregion
+                ListBox_Archivos.ItemsSource = proyectos;
+
+            TextBox_Peresupuesto3ros.Text = "0";
+            TextBox_presupuestoEmpresa.Text = "0";
 
 
         }
 
         private void TextBox_titulo_LostFocus(object sender, RoutedEventArgs e)
         {
-            
-             if (string.IsNullOrWhiteSpace(TextBox_titulo.Text))
+
+            if (string.IsNullOrWhiteSpace(TextBox_titulo.Text))
             {
-                MessageBox.Show("El campo esta vacio, por favor llenelo");
-               
+                MessageBox.Show("El campo está vacío, por favor llénelo");
+
             }
             else if (RegexLetras.IsMatch(TextBox_titulo.Text))
             {
-                MessageBox.Show("El nombre del proyecto debe de estar en letras, por favor corriga el campo");
+                MessageBox.Show("El nombre del proyecto debe de estar en caracteres alfabéticos, por favor corriga el campo");
 
             }
         }
 
-       
+
 
         private void TextBox_investigador_LostFocus(object sender, RoutedEventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(TextBox_investigador.Text))
             {
-                MessageBox.Show("El campo esta vacio, por favor llenelo");
-                
+                MessageBox.Show("El campo está vacío, por favor llénelo");
+
             }
-            else if(RegexLetras.IsMatch(TextBox_investigador.Text))
+            else if (RegexLetras.IsMatch(TextBox_investigador.Text))
             {
-                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenas el campo");
+                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenar el campo");
 
             }
 
@@ -91,23 +94,23 @@ namespace ptimera_wpf
 
         private void TextBox_area_LostFocus(object sender, RoutedEventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(TextBox_area.Text))
             {
-                MessageBox.Show("El campo esta vacio, por favor llenelo");
-                
-            }else if (RegexLetras.IsMatch(TextBox_area.Text))
+                MessageBox.Show("El campo está vacío, por favor llénelo");
+
+            } else if (RegexLetras.IsMatch(TextBox_area.Text))
             {
-                MessageBox.Show("El area del proyecto debe estar lleno, por favor corrija");
+                MessageBox.Show("El area del proyecto debe estar lleno, por favor corríjalo");
 
             }
         }
 
-       
+
 
         private void TexBox_Porcentaje_LostFocus(object sender, RoutedEventArgs e)
         {
-            if(RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text)){
+            if (RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text)) {
                 MessageBox.Show("El valor debe ser porcentual, por lo cual no puede ser negativo");
             }
             else if (!RegexValores.IsMatch(TexBox_Porcentaje.Text) && !RegexPorcentaje.IsMatch(TexBox_Porcentaje.Text)) {
@@ -119,40 +122,31 @@ namespace ptimera_wpf
         private void TextBox_Empresa_LostFocus(object sender, RoutedEventArgs e)
         {
             if (!Desripcion.IsMatch(TextBox_Empresa.Text)) {
-                MessageBox.Show("El nombre no tiene caracter valido para ser considerado como tal");
+                MessageBox.Show("El nombre no tiene caracteres válidos para ser considerado como un nombre de empresa");
 
             }
             else if (string.IsNullOrEmpty(TextBox_Empresa.Text))
             {
-                TextBox_Empresa.Text = "aun por determinar";
+                TextBox_Empresa.Text = "aún por determinar";
 
             }
         }
 
-        private void TextBox_Presupuesto_LostFocus(object sender, RoutedEventArgs e)
-        {
-            
-            if(string.IsNullOrEmpty(TextBox_Presupuesto.Text))
-            {
-                TextBox_Presupuesto.Text = "0";
-            }else if (RegexValores.IsMatch(TextBox_Presupuesto.Text) || negativo.IsMatch(TextBox_Presupuesto.Text))
-            {
-                MessageBox.Show("EL presupuesto solo puede ser de caracter numerico positivo");
-            }
-        }
+
 
         private void TextBox_presupuestoEmpresa_LostFocus(object sender, RoutedEventArgs e)
         {
-         
+
             if (string.IsNullOrEmpty(TextBox_presupuestoEmpresa.Text))
             {
                 TextBox_presupuestoEmpresa.Text = "0";
             }
-            else if(RegexValores.IsMatch(TextBox_presupuestoEmpresa.Text) || negativo.IsMatch(TextBox_presupuestoEmpresa.Text))
+            else if (RegexValores.IsMatch(TextBox_presupuestoEmpresa.Text) || negativo.IsMatch(TextBox_presupuestoEmpresa.Text))
             {
-                MessageBox.Show("EL presupuesto solo puede ser de caracter numerico positivo");
+                MessageBox.Show("EL presupuesto solo puede ser de caracter numérico positivo");
             }
         }
+    
 
         private void TextBox_Peresupuesto3ros_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -162,26 +156,38 @@ namespace ptimera_wpf
             }
             else if (RegexValores.IsMatch(TextBox_Peresupuesto3ros.Text) || negativo.IsMatch(TextBox_Peresupuesto3ros.Text))
             {
-                MessageBox.Show("EL presupuesto solo puede ser de caracter numerico positivo");
+                MessageBox.Show("EL presupuesto solo puede ser de carácter numerico positivo");
             }
+            /*
+            double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
+            double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
+            double total = Pre3ros + PreEmpresas;
+            TextBox_Presupuesto.Text = total.ToString();
+            */
         }
 
         private void TextBox_actividades_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TextBox_actividades.Text)){
-                TextBox_actividades.Text = "Actividades a un por definir";
+                TextBox_actividades.Text = "Actividades aún por definir";
             }
             else if (!Desripcion.IsMatch(TextBox_actividades.Text))
             {
-                MessageBox.Show("Los caracteres ingresados no son validos. Vuelva los a llenar");
+                MessageBox.Show("Los caracteres ingresados no son validos. Vuélvalos a llenar");
             }
+            /*
+            double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
+            double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
+            double total= Pre3ros + PreEmpresas;
+            TextBox_Presupuesto.Text = total.ToString();
+            */
         }
 
         private void TextBox_descripcion_LostFocus(object sender, RoutedEventArgs e)
         {
             if (!Desripcion.IsMatch(TextBox_descripcion.Text))
             {
-                MessageBox.Show("Los caracteres ingresados no son validos, Por fvor llenelos");
+                MessageBox.Show("Los caracteres ingresados no son validos, Por favor llénelos");
             }
         }
         private void guardarEmpleados()
@@ -201,17 +207,7 @@ namespace ptimera_wpf
         {
             ListBox_Archivos.ItemsSource = null;
             ListBox_Archivos.ItemsSource = proyectos;
-            /*
-            if (proyectos.Count > 0)
-            {
-                foreach (Proyecto proy in proyectos)
-                {
-                    ListBox_Archivos.Items.Add(proy.Investigador);
-                }
-
-                ListBox_Archivos.SelectedIndex = 0;
-            }
-            */
+            
         }
         private void fillComboBoxes()
         {
@@ -273,7 +269,7 @@ namespace ptimera_wpf
             DatePicker_entrega.IsEnabled =true ;
             TexBox_Porcentaje.IsReadOnly = true;
             ListBox_Archivos.IsEnabled = true;
-            TextBox_Empresa.IsReadOnly = false;
+            TextBox_Empresa.IsReadOnly = true;
             TextBox_Presupuesto.IsReadOnly = true;
             TextBox_presupuestoEmpresa.IsReadOnly = true;
             TextBox_Peresupuesto3ros.IsReadOnly = true;
@@ -300,7 +296,7 @@ namespace ptimera_wpf
             DatePicker_entrega.IsEnabled = true;
             TexBox_Porcentaje.IsReadOnly = false;
             ListBox_Archivos.IsEnabled = true;
-            TextBox_Empresa.IsReadOnly = false;
+            TextBox_Empresa.IsReadOnly = true;
             TextBox_Presupuesto.IsReadOnly = false;
             TextBox_presupuestoEmpresa.IsReadOnly = false;
             TextBox_Peresupuesto3ros.IsReadOnly = false;
@@ -325,7 +321,7 @@ namespace ptimera_wpf
             DatePicker_entrega.IsEnabled = false;
             TexBox_Porcentaje.IsEnabled = true;
             ListBox_Archivos.IsEnabled = true;
-            TextBox_Empresa.IsEnabled = true;
+            TextBox_Empresa.IsReadOnly = true;
             TextBox_Presupuesto.IsEnabled = true;
             TextBox_presupuestoEmpresa.IsEnabled = true;
             TextBox_Peresupuesto3ros.IsEnabled = true;
@@ -397,7 +393,12 @@ namespace ptimera_wpf
             }
 
             if (ButtonCambio.Content.Equals("Guardar"))
+
             {
+                double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
+                double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
+                double total = Pre3ros + PreEmpresas;
+                TextBox_Presupuesto.Text = total.ToString();
                 {
                     Proyecto proyectosTemp = new Proyecto();
                     proyectosTemp.IndiceDeCompletición = TexBox_Porcentaje.Text;

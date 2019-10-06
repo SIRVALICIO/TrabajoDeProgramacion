@@ -134,7 +134,12 @@ namespace ptimera_wpf
             get { return pagoPorParteUpb; }
             set
             {
-                pagoPorParteUpb = value;
+                if (value == null) { pagoPorParteUpb = "0"; }
+
+                else{
+
+                    pagoPorParteUpb = value;
+                }
             }
         }
 
@@ -143,7 +148,7 @@ namespace ptimera_wpf
             get { return pagoPorParteEmpresa; }
             set
             {
-                if (value == null) { pagoPorParteEmpresa = ""; }
+                if (value == null) { pagoPorParteEmpresa = "0"; }
 
                 else { 
                 pagoPorParteEmpresa = value;
