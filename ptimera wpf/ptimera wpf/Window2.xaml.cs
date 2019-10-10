@@ -33,6 +33,13 @@ namespace ptimera_wpf
         public Window2()
         {
             InitializeComponent();
+            
+            string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
+            if (read.Equals("")) { proyectos=new List<Proyecto>(); }
+            else
+            {
+                proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
+            }
             initializeVariables();
         }
         private void initializeVariables()
@@ -193,9 +200,7 @@ namespace ptimera_wpf
         private void guardarEmpleados()
         {
 
-            StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-            
-            sw.Close();
+           
             string save = JsonConvert.SerializeObject(proyectos);
             File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt",save);
 
@@ -224,18 +229,14 @@ namespace ptimera_wpf
             }
             ComboBox_Elecciones.SelectedIndex = 0;
         }
-        private void cargarEmpleados()
-        {
-
-            
-        }
+        
 
 
         private void modoConsulta()
         {
             #region
-            string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-            proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
+           // string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
+            //proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
             TextBox_titulo.IsReadOnly = true;
             TextBox_investigador.IsReadOnly = true;
@@ -259,8 +260,8 @@ namespace ptimera_wpf
         private void modoEditar()
         {
             #region
-            string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-            proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
+            //string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
+            //proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
             TextBox_titulo.IsReadOnly = false;
             TextBox_investigador.IsReadOnly = false;
@@ -271,13 +272,13 @@ namespace ptimera_wpf
             ListBox_Archivos.IsEnabled = true;
             TextBox_Empresa.IsReadOnly = true;
             TextBox_Presupuesto.IsReadOnly = true;
-            TextBox_presupuestoEmpresa.IsReadOnly = true;
-            TextBox_Peresupuesto3ros.IsReadOnly = true;
+            TextBox_presupuestoEmpresa.IsReadOnly = false;
+            TextBox_Peresupuesto3ros.IsReadOnly = false;
             TextBox_descripcion.IsReadOnly = false;
             TextBox_actividades.IsReadOnly = true;
             
             
-            ButtonCambio.Content = "Guardar";
+            ButtonCambio.Content = "Sobre-Escribir";
             ButtonCambio.Visibility = Visibility.Visible;
             ButtonCambio.IsEnabled = true;
 
@@ -286,8 +287,8 @@ namespace ptimera_wpf
         private void modoAgregar()
         {
             #region
-            string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
-            proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
+            //string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
+            //proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
             TextBox_titulo.IsReadOnly = false;
             TextBox_investigador.IsReadOnly = false;
@@ -296,8 +297,8 @@ namespace ptimera_wpf
             DatePicker_entrega.IsEnabled = true;
             TexBox_Porcentaje.IsReadOnly = false;
             ListBox_Archivos.IsEnabled = true;
-            TextBox_Empresa.IsReadOnly = true;
-            TextBox_Presupuesto.IsReadOnly = false;
+            TextBox_Empresa.IsReadOnly = false;
+            TextBox_Presupuesto.IsReadOnly = true;
             TextBox_presupuestoEmpresa.IsReadOnly = false;
             TextBox_Peresupuesto3ros.IsReadOnly = false;
             TextBox_descripcion.IsReadOnly = false;
@@ -384,17 +385,26 @@ namespace ptimera_wpf
         private void ButtonCambio_Click(object sender, RoutedEventArgs e)
         {
             
-            if (ButtonCambio.Content.Equals("Eliminar"))
+            if (ButtonCambio.Content.Equals("Eliminar") && ListBox_Archivos.SelectedIndex>-1)
             {
                 proyectos.RemoveAt(ListBox_Archivos.SelectedIndex);
                 guardarEmpleados();
-                cargarEmpleados();
+                
+                
                 fillListBox();
+                
             }
 
             if (ButtonCambio.Content.Equals("Guardar"))
 
             {
+                if(Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
+                {
+                    MessageBox.Show("LA fecha de entrega es mucho antes a la de inicio, por favor corriga el campo");
+                    return;
+
+                }
+                else { 
                 double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
                 double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
                 double total = Pre3ros + PreEmpresas;
@@ -418,11 +428,45 @@ namespace ptimera_wpf
 
                 }
                 guardarEmpleados();
-                cargarEmpleados();
+                
                 fillListBox();
 
             }
+            }
+            if (Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
+            {
+                MessageBox.Show("LA fecha de entrega es mucho antes a la de inicio, por favor corriga el campo");
+                return;
+
+            }
+            else
+            {
+
+                if (ButtonCambio.Content.Equals("Sobre-Escribir")) {
+                double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
+                double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
+                double total = Pre3ros + PreEmpresas;
+                TextBox_Presupuesto.Text = total.ToString();
+                Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
+                proyectoTemporal.NombreProyecto = TextBox_titulo.Text;
+                proyectoTemporal.Investigador = TextBox_investigador.Text;
+                proyectoTemporal.AreaProyecto = TextBox_area.Text;
+                proyectoTemporal.FechaInicio = DatePicker_inicio.Text;
+                proyectoTemporal.FechaFinalización = DatePicker_entrega.Text;
+                proyectoTemporal.IndiceDeCompletición = TexBox_Porcentaje.Text;
+                proyectoTemporal.EmpresaSolicitadora = TextBox_Empresa.Text;
+                proyectoTemporal.Presupuesto = TextBox_Presupuesto.Text;
+                proyectoTemporal.PagoPorParteEmpresa = TextBox_presupuestoEmpresa.Text;
+                proyectoTemporal.PagoPorParteUPB = TextBox_Peresupuesto3ros.Text;
+                proyectoTemporal.DescripciónProyecto = TextBox_descripcion.Text;
+                proyectoTemporal.ActividadProyecto = TextBox_actividades.Text;
+
+
+                fillListBox();
+            }
         }
+        }
+
 
         private void ListBox_Archivos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -431,7 +475,7 @@ namespace ptimera_wpf
 
         private void ComboBox_Elecciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cargarEmpleados();
+            
             fillListBox();
             switch (ComboBox_Elecciones.SelectedIndex)
             {

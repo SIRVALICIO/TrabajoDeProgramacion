@@ -18,6 +18,14 @@
             }
         }
 
+        public Proyecto Proyecto
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void Login()
         {
             throw new System.NotImplementedException();
