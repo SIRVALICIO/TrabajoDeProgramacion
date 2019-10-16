@@ -38,5 +38,8 @@
         <DatePicker x:Name="DatePicker_inicio" HorizontalAlignment="Left" Margin="397,185,0,0" VerticalAlignment="Top" Width="147"/>
         <DatePicker x:Name="DatePicker_entrega" HorizontalAlignment="Left" Margin="397,228,0,0" VerticalAlignment="Top" Height="28" Width="147"/>
         <TextBlock x:Name="TextBlockProyectos_Registrados" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Proyectos registrados:" VerticalAlignment="Top" Width="227" Height="24"/>
+        <ComboBox x:Name="ComboBoxesOrden" HorizontalAlignment="Left" Margin="207,26,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxesOrden_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="207,10,0,0" TextWrapping="Wrap" Text="Ordenar por: " VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="ButtonAyuda" Content="Ayuda" HorizontalAlignment="Left" Margin="23,758,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAyuda_Click"/>
     </Grid>
 </Window>

@@ -11,13 +11,13 @@ namespace ptimera_wpf
         private string nombreProyecto;
         private string areaProyecto;
         private string actividadProyecto;
-        private string indiceCompletaion;
-        private string fechaInicio;
-        private string fechaFinalizacion;
-        private string presupuesto;
+        private Double indiceCompletaion;
+        private DateTime fechaInicio;
+        private DateTime fechaFinalizacion;
+        private double presupuesto;
         private string empresaSolicitadora;
-        private string pagoPorParteUpb;
-        private string pagoPorParteEmpresa;
+        private Double pagoPorParteUpb;
+        private double pagoPorParteEmpresa;
         private string descripcionProyecto;
         private string investigador;
         public string NombreProyecto
@@ -59,58 +59,44 @@ namespace ptimera_wpf
             }
         }
 
-        public string IndiceDeCompletición
+        public double IndiceDeCompletición
         {
             get { return indiceCompletaion; }
             set
             {
-                if (value == null)
-                    indiceCompletaion = "";
-                else
                     indiceCompletaion = value;
             }
         }
 
-        public string FechaInicio
+        public DateTime FechaInicio
         {
             get {
                 return fechaInicio;
             }
             set
             {
-                if (value == null)
-                    fechaInicio = "";
-                else
+
                     fechaInicio = value;
             }
         }
 
-        public string FechaFinalización
+        public DateTime FechaFinalización
         {
             get { return fechaFinalizacion; }
             set
             {
-                if (value == null)
-                    fechaFinalizacion = "";
-                else
+                
                     fechaFinalizacion = value;
             }
         }
 
-        public string Presupuesto
+        public double Presupuesto
         {
             get { return presupuesto; }
-            set { 
-  
-                if (value == null) {
-
-                    presupuesto = "";
-                } 
-                else
-                { presupuesto = value; }
+            set { presupuesto = value; }
                
                 
-            }
+            
         }
         public string EmpresaSolicitadora
         {
@@ -118,7 +104,7 @@ namespace ptimera_wpf
             set {
                 if (value == null)
                 {
-                    presupuesto = "";
+                    empresaSolicitadora = "";
                 }
                 else
                 {
@@ -129,30 +115,26 @@ namespace ptimera_wpf
 
 
 
-        public string PagoPorParteUPB
+        public double PagoPorParteUPB
         {
             get { return pagoPorParteUpb; }
             set
             {
-                if (value == null) { pagoPorParteUpb = "0"; }
-
-                else{
+               
 
                     pagoPorParteUpb = value;
-                }
+                
             }
         }
 
-        public string PagoPorParteEmpresa
+        public double PagoPorParteEmpresa
         {
             get { return pagoPorParteEmpresa; }
             set
             {
-                if (value == null) { pagoPorParteEmpresa = "0"; }
-
-                else { 
+                 
                 pagoPorParteEmpresa = value;
-                }
+                
             }
         }
 
@@ -195,9 +177,6 @@ namespace ptimera_wpf
 
 
         }
-        public void GuardarInfo()
-        {
-
-        }
+        
     }
 }

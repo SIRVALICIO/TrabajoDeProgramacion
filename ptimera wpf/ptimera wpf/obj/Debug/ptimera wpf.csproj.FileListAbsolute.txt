@@ -76,3 +76,5 @@ C:\Users\VAL\Desktop\projectos\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.csp
 C:\Users\VAL\Desktop\ptimera wpf\ptimera wpf\bin\Debug\Newtonsoft.Json.dll
 C:\Users\VAL\Desktop\ptimera wpf\ptimera wpf\bin\Debug\Newtonsoft.Json.xml
 C:\Users\VAL\Desktop\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.csproj.CopyComplete
+C:\Users\VAL\Desktop\projectos\ptimera wpf\ptimera wpf\obj\Debug\Ventana de ayuda.g.cs
+C:\Users\VAL\Desktop\projectos\ptimera wpf\ptimera wpf\obj\Debug\Ventana de ayuda.baml

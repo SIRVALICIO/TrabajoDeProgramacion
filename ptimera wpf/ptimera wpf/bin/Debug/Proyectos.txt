@@ -1,1 +1,0 @@
-[{"NombreProyecto":"aa","AreaProyecto":"aa","ActividadProyecto":"Actividade por definir","IndiceDeCompletición":"12%","FechaInicio":"2/10/2019","FechaFinalización":"21/12/2019","Presupuesto":"246","EmpresaSolicitadora":"as","PagoPorParteUPB":"123","PagoPorParteEmpresa":"123","DescripciónProyecto":"as","Investigador":"aa"}]
