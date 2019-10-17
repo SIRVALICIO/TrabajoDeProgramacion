@@ -179,7 +179,7 @@ namespace ptimera_wpf
             if (string.IsNullOrEmpty(TextBox_actividades.Text)){
                 TextBox_actividades.Text = "Actividades aún por definir";
             }
-            else if (!Desripcion.IsMatch(TextBox_actividades.Text))
+            else if (Desripcion.IsMatch(TextBox_actividades.Text))
             {
                 MessageBox.Show("Los caracteres ingresados no son validos. Vuélvalos a llenar");
             }
