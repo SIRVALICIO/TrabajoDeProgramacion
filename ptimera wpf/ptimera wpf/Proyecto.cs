@@ -11,7 +11,7 @@ namespace ptimera_wpf
         private string nombreProyecto;
         private string areaProyecto;
         private string actividadProyecto;
-        private Double indiceCompletaion;
+        private string indiceCompletaion;
         private DateTime fechaInicio;
         private DateTime fechaFinalizacion;
         private double presupuesto;
@@ -59,7 +59,7 @@ namespace ptimera_wpf
             }
         }
 
-        public double IndiceDeCompletición
+        public string IndiceDeCompletición
         {
             get { return indiceCompletaion; }
             set

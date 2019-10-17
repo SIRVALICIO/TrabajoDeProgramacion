@@ -434,7 +434,7 @@ namespace ptimera_wpf
                 TextBox_Presupuesto.Text = total.ToString();
                 
                     Proyecto proyectosTemp = new Proyecto();
-                    proyectosTemp.IndiceDeCompletición =Convert.ToDouble( TexBox_Porcentaje.Text);
+                    proyectosTemp.IndiceDeCompletición = TexBox_Porcentaje.Text;
                     proyectosTemp.EmpresaSolicitadora = TextBox_Empresa.Text;
                     proyectosTemp.NombreProyecto = TextBox_titulo.Text;
                     proyectosTemp.Investigador = TextBox_investigador.Text;
@@ -477,7 +477,7 @@ namespace ptimera_wpf
                 proyectoTemporal.AreaProyecto = TextBox_area.Text;
                 proyectoTemporal.FechaInicio =Convert.ToDateTime( DatePicker_inicio.Text);
                 proyectoTemporal.FechaFinalización =Convert.ToDateTime( DatePicker_entrega.Text);
-                proyectoTemporal.IndiceDeCompletición =Convert.ToDouble( TexBox_Porcentaje.Text);
+                proyectoTemporal.IndiceDeCompletición = TexBox_Porcentaje.Text;
                 proyectoTemporal.EmpresaSolicitadora = TextBox_Empresa.Text;
                 proyectoTemporal.Presupuesto = Convert.ToDouble(TextBox_Presupuesto.Text);
                 proyectoTemporal.PagoPorParteEmpresa =Convert.ToDouble( TextBox_presupuestoEmpresa.Text);

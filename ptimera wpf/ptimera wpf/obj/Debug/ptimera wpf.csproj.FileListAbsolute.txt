@@ -20,7 +20,6 @@ C:\Users\VAL\source\repos\ptimera wpf\ptimera wpf\obj\Debug\WindowInfo.baml
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.csprojAssemblyReference.cache
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\MainWindow.g.cs
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\Window2.g.cs
-C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\WindowInfo.g.cs
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\App.g.cs
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf_MarkupCompile.cache
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf_MarkupCompile.lref
@@ -31,7 +30,6 @@ C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\bin\
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\bin\Debug\ptimera wpf.pdb
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\MainWindow.baml
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\Window2.baml
-C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\WindowInfo.baml
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.g.resources
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera_wpf.Properties.Resources.resources
 C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.csproj.GenerateResource.cache
@@ -78,3 +76,8 @@ C:\Users\VAL\Desktop\ptimera wpf\ptimera wpf\bin\Debug\Newtonsoft.Json.xml
 C:\Users\VAL\Desktop\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.csproj.CopyComplete
 C:\Users\VAL\Desktop\projectos\ptimera wpf\ptimera wpf\obj\Debug\Ventana de ayuda.g.cs
 C:\Users\VAL\Desktop\projectos\ptimera wpf\ptimera wpf\obj\Debug\Ventana de ayuda.baml
+C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\bin\Debug\Newtonsoft.Json.dll
+C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\bin\Debug\Newtonsoft.Json.xml
+C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\Ventana de ayuda.g.cs
+C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\Ventana de ayuda.baml
+C:\Users\VAL\Documents\GitHub\TrabajoDeProgramacion\ptimera wpf\ptimera wpf\obj\Debug\ptimera wpf.csproj.CopyComplete
