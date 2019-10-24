@@ -72,12 +72,12 @@ namespace ptimera_wpf
 
             if (string.IsNullOrWhiteSpace(TextBox_titulo.Text))
             {
-                MessageBox.Show("El campo está vacío, por favor llénelo");
+                MessageBox.Show("El campo está vacío, por favor, llénelo");
 
             }
             else if (RegexLetras.IsMatch(TextBox_titulo.Text))
             {
-                MessageBox.Show("El nombre del proyecto debe de estar en caracteres alfabéticos, por favor corriga el campo");
+                MessageBox.Show("El nombre del proyecto debe de estar en caracteres alfabéticos, por favor, corriga el campo");
 
             }
         }
@@ -89,12 +89,12 @@ namespace ptimera_wpf
 
             if (string.IsNullOrWhiteSpace(TextBox_investigador.Text))
             {
-                MessageBox.Show("El campo está vacío, por favor llénelo");
+                MessageBox.Show("El campo está vacío, por favor, llénelo");
 
             }
             else if (RegexLetras.IsMatch(TextBox_investigador.Text))
             {
-                MessageBox.Show("El nombre de usuario solo puede tener letras y espacios, vuelva a llenar el campo");
+                MessageBox.Show("El nombre de usuario solo puede contener letras y espacios, por favor, vuelva a llenar el campo");
 
             }
 
@@ -109,7 +109,7 @@ namespace ptimera_wpf
 
             } else if (RegexLetras.IsMatch(TextBox_area.Text))
             {
-                MessageBox.Show("El area del proyecto debe estar lleno, por favor corríjalo");
+                MessageBox.Show("El area del proyecto debe estar completo, por favor corríjalo");
 
             }
         }
@@ -118,10 +118,14 @@ namespace ptimera_wpf
 
         private void TexBox_Porcentaje_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text)) {
-                MessageBox.Show("El valor debe ser porcentual, por lo cual no puede ser negativo");
+            if (string.IsNullOrEmpty(TexBox_Porcentaje.Text))
+            {
+                MessageBox.Show("El campo esta vacio");
             }
-            else if (!RegexValores.IsMatch(TexBox_Porcentaje.Text) && !RegexPorcentaje.IsMatch(TexBox_Porcentaje.Text)) {
+            else if (RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text)) {
+                MessageBox.Show("El valor debe ser porcentual, por lo cual, no puede ser negativo");
+            }
+            else {
                 TexBox_Porcentaje.Text = TexBox_Porcentaje.Text + "%";
 
             }
@@ -129,7 +133,7 @@ namespace ptimera_wpf
 
         private void TextBox_Empresa_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!Desripcion.IsMatch(TextBox_Empresa.Text)) {
+            if (Desripcion.IsMatch(TextBox_Empresa.Text)) {
                 MessageBox.Show("El nombre no tiene caracteres válidos para ser considerado como un nombre de empresa");
 
             }
@@ -181,7 +185,7 @@ namespace ptimera_wpf
             }
             else if (Desripcion.IsMatch(TextBox_actividades.Text))
             {
-                MessageBox.Show("Los caracteres ingresados no son validos. Vuélvalos a llenar");
+                MessageBox.Show("Los caracteres ingresados no son validos, Vuélvalos a llenar");
             }
             /*
             double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
@@ -193,9 +197,14 @@ namespace ptimera_wpf
 
         private void TextBox_descripcion_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!Desripcion.IsMatch(TextBox_descripcion.Text))
+            if (string.IsNullOrEmpty(TextBox_descripcion.Text))
             {
-                MessageBox.Show("Los caracteres ingresados no son validos, Por favor llénelos");
+                MessageBox.Show("Deben definirse actividades antes de proceder");
+            }
+
+            else if (Desripcion.IsMatch(TextBox_descripcion.Text))
+            {
+                MessageBox.Show("Los caracteres ingresados no son validos, Por favor, llénelos");
             }
         }
         private void guardarEmpleados()
@@ -240,22 +249,33 @@ namespace ptimera_wpf
             //proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
             TextBox_titulo.IsReadOnly = true;
+            TextBox_titulo.IsEnabled = false;
             TextBox_investigador.IsReadOnly = true;
+            TextBox_investigador.IsEnabled = false;
             TextBox_area.IsReadOnly = true;
+            TextBox_area.IsEnabled = false;
             DatePicker_inicio.IsEnabled = false;
             DatePicker_entrega.IsEnabled = false;
             TexBox_Porcentaje.IsReadOnly= true;
+            TexBox_Porcentaje.IsEnabled = false;
             ListBox_Archivos.IsEnabled= true;
             TextBox_Empresa.IsReadOnly = true;
+            TextBox_Empresa.IsEnabled = false;
             TextBox_Presupuesto.IsReadOnly = true;
+            TextBox_Presupuesto.IsEnabled = false;
             TextBox_presupuestoEmpresa.IsReadOnly= true;
+            TextBox_presupuestoEmpresa.IsEnabled = false;
             TextBox_Peresupuesto3ros.IsReadOnly = true;
+            TextBox_Peresupuesto3ros.IsEnabled = false;
             TextBox_descripcion.IsReadOnly = true;
+            TextBox_descripcion.IsEnabled = false;
             TextBox_actividades.IsReadOnly = true;
+            TextBox_actividades.IsEnabled = false;
+            DatePickerModificacion.IsEnabled = false;
 
 
 
-            cargarEmpleadoSeleccionado();
+            
             ButtonCambio.Visibility = Visibility.Hidden;
         }
         private void modoEditar()
@@ -317,18 +337,28 @@ namespace ptimera_wpf
         private void modoEliminar()
         {
             TextBox_titulo.IsReadOnly = true;
-            TextBox_investigador.IsReadOnly = true; ;
+            TextBox_titulo.IsEnabled = false;
+            TextBox_investigador.IsReadOnly = true;
+            TextBox_investigador.IsEnabled = false;
             TextBox_area.IsReadOnly = true;
+            TextBox_area.IsEnabled = false;
             DatePicker_inicio.IsEnabled= false;
             DatePicker_entrega.IsEnabled = false;
-            TexBox_Porcentaje.IsEnabled = true;
+            TexBox_Porcentaje.IsReadOnly = true;
+            TexBox_Porcentaje.IsEnabled = false;
             ListBox_Archivos.IsEnabled = true;
             TextBox_Empresa.IsReadOnly = true;
-            TextBox_Presupuesto.IsEnabled = true;
-            TextBox_presupuestoEmpresa.IsEnabled = true;
-            TextBox_Peresupuesto3ros.IsEnabled = true;
-            TextBox_descripcion.IsEnabled = true;
-            TextBox_actividades.IsEnabled = true;
+            TextBox_Empresa.IsEnabled = false;
+            TextBox_Presupuesto.IsReadOnly = true;
+            TextBox_Presupuesto.IsEnabled = false;
+            TextBox_presupuestoEmpresa.IsReadOnly = true;
+            TextBox_presupuestoEmpresa.IsEnabled = false;
+            TextBox_Peresupuesto3ros.IsReadOnly = true;
+            TextBox_Peresupuesto3ros.IsEnabled = false;
+            TextBox_descripcion.IsReadOnly = true;
+            TextBox_descripcion.IsEnabled = false;
+            TextBox_actividades.IsReadOnly = true;
+            TextBox_actividades.IsEnabled = false;
        
             ButtonCambio.Content= "Eliminar";
             ButtonCambio.Visibility = Visibility.Visible;
@@ -350,6 +380,7 @@ namespace ptimera_wpf
             TextBox_Peresupuesto3ros.Text = "";
             TextBox_descripcion.Text = "";
             TextBox_actividades.Text = "";
+            DatePickerModificacion.Text = "";
         }
 
 
@@ -363,8 +394,8 @@ namespace ptimera_wpf
             modes.Add("Mayor presupuesto");
             modes.Add("Menor presupuesto");
             
-            modes.Add("Mas reciente");
-            modes.Add("mas viejo");
+            modes.Add("Más reciente");
+            modes.Add("Más antiguo");
 
             ComboBoxesOrden.Items.Clear();
             for (int i = 0; i < modes.Count; i++)
@@ -378,11 +409,16 @@ namespace ptimera_wpf
 
 
 
-
+       
         private void cargarEmpleadoSeleccionado()
         {
+
+
             limpiar();
-            if (ListBox_Archivos.SelectedIndex > -1) { 
+
+           
+
+            if (ListBox_Archivos.SelectedIndex > -1  && ButtonCambio.Content!="Guardar") { 
             Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
             TextBox_titulo.Text = proyectoTemporal.NombreProyecto.ToString();
             TextBox_investigador.Text = proyectoTemporal.Investigador.ToString();
@@ -396,8 +432,11 @@ namespace ptimera_wpf
             TextBox_Peresupuesto3ros.Text = proyectoTemporal.PagoPorParteUPB.ToString();
             TextBox_descripcion.Text = proyectoTemporal.DescripciónProyecto.ToString();
             TextBox_actividades.Text = proyectoTemporal.ActividadProyecto.ToString();
+            DatePickerModificacion.Text = proyectoTemporal.FechaModificacion.ToString();
 
             }
+        
+
         }
 
         private void True(object sender, DependencyPropertyChangedEventArgs e)
@@ -407,8 +446,16 @@ namespace ptimera_wpf
 
         private void ButtonCambio_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (ButtonCambio.Content.Equals("Eliminar") && ListBox_Archivos.SelectedIndex>-1)
+            if (string.IsNullOrWhiteSpace(TextBox_titulo.Text) || string.IsNullOrWhiteSpace(TextBox_investigador.Text) || string.IsNullOrWhiteSpace(TextBox_area.Text) || string.IsNullOrEmpty(TexBox_Porcentaje.Text) || string.IsNullOrEmpty(TextBox_Empresa.Text)|| string.IsNullOrEmpty(TextBox_presupuestoEmpresa.Text)|| string.IsNullOrEmpty(TextBox_Peresupuesto3ros.Text)|| string.IsNullOrEmpty(TextBox_actividades.Text)|| string.IsNullOrEmpty(TextBox_descripcion.Text)) {
+            }
+            else if (Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
+            {
+                MessageBox.Show("La fecha de entrega es mucho antes de la de inicio, por favor corrija el campo");
+                return;
+
+            }else
+
+            { if (ButtonCambio.Content.Equals("Eliminar") && ListBox_Archivos.SelectedIndex>-1)
             {
                 proyectos.RemoveAt(ListBox_Archivos.SelectedIndex);
                 guardarEmpleados();
@@ -416,22 +463,15 @@ namespace ptimera_wpf
                 
                 fillListBox();
                 
-            }
-
-            if (ButtonCambio.Content.Equals("Guardar"))
+            }else if (ButtonCambio.Content.Equals("Guardar"))
 
             {
-                if(Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
-                {
-                    MessageBox.Show("La fecha de entrega es mucho antes a la de inicio, por favor corriga el campo");
-                    return;
-
-                }
-                else { 
+               
                 double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
                 double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
                 double total = Pre3ros + PreEmpresas;
                 TextBox_Presupuesto.Text = total.ToString();
+                DatePickerModificacion.Text = DateTime.Now.ToString();
                 
                     Proyecto proyectosTemp = new Proyecto();
                     proyectosTemp.IndiceDeCompletición = TexBox_Porcentaje.Text;
@@ -441,6 +481,7 @@ namespace ptimera_wpf
                     proyectosTemp.AreaProyecto = TextBox_area.Text;
                     proyectosTemp.FechaInicio =Convert.ToDateTime( DatePicker_inicio.Text);
                     proyectosTemp.FechaFinalización = Convert.ToDateTime(DatePicker_entrega.Text);
+                    proyectosTemp.FechaModificacion = Convert.ToDateTime(DatePickerModificacion.Text);
                     proyectosTemp.Presupuesto = Convert.ToDouble(TextBox_Presupuesto.Text);
                     proyectosTemp.PagoPorParteEmpresa =Convert.ToDouble( TextBox_presupuestoEmpresa.Text);
                     proyectosTemp.PagoPorParteUPB =Convert.ToDouble( TextBox_Peresupuesto3ros.Text);
@@ -451,32 +492,28 @@ namespace ptimera_wpf
 
                 
                 guardarEmpleados();
+                    MessageBox.Show("El archivo se ha guardado correctamente");
                 
                 fillListBox();
 
 
+            
             }
-            }
-            if (Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
-            {
-                MessageBox.Show("LA fecha de entrega es mucho antes a la de inicio, por favor corriga el campo");
-                return;
-
-            }
-            else
-            {
-
-                if (ButtonCambio.Content.Equals("Sobre-Escribir")) {
+        
+            else if (ButtonCambio.Content.Equals("Sobre-Escribir")) {
                 double PreEmpresas = Convert.ToDouble(TextBox_presupuestoEmpresa.Text);
                 double Pre3ros = Convert.ToDouble(TextBox_Peresupuesto3ros.Text);
                 double total = Pre3ros + PreEmpresas;
                 TextBox_Presupuesto.Text = total.ToString();
+                DatePickerModificacion.Text = DateTime.Now.ToString();
+
                 Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
                 proyectoTemporal.NombreProyecto = TextBox_titulo.Text;
                 proyectoTemporal.Investigador = TextBox_investigador.Text;
                 proyectoTemporal.AreaProyecto = TextBox_area.Text;
                 proyectoTemporal.FechaInicio =Convert.ToDateTime( DatePicker_inicio.Text);
                 proyectoTemporal.FechaFinalización =Convert.ToDateTime( DatePicker_entrega.Text);
+                proyectoTemporal.FechaModificacion = Convert.ToDateTime(DatePickerModificacion.Text);
                 proyectoTemporal.IndiceDeCompletición = TexBox_Porcentaje.Text;
                 proyectoTemporal.EmpresaSolicitadora = TextBox_Empresa.Text;
                 proyectoTemporal.Presupuesto = Convert.ToDouble(TextBox_Presupuesto.Text);
@@ -489,7 +526,8 @@ namespace ptimera_wpf
 
 
                 fillListBox();
-            }
+            
+        }
         }
         }
 
@@ -573,44 +611,60 @@ namespace ptimera_wpf
             }
 
         }
-
-        private void OrdenArea()
-        {
-
-            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.AreaProyecto).ToArray();
-        }
-
-        private void OrdenPresupuestoMayor()
-        {
+        
+       private void OrdenArea() {
+            proyectos = proyectos.OrderBy(x => x.AreaProyecto).ToList();
+            fillListBox();
             
-            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.Presupuesto).ToArray();
         }
-        private void OrdenPresupuestoMenor()
-        {
-            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.Presupuesto).Reverse().ToArray();
+
+
+
+      private void OrdenPresupuestoMayor()
+       {
+
+            proyectos = proyectos.OrderByDescending(x => x.Presupuesto).Reverse().ToList();
+
+            fillListBox();
+
+
+        }
+       private void OrdenPresupuestoMenor()
+       {
+           
+
+
+            proyectos = proyectos.OrderBy(x => x.Presupuesto).ToList();
+            fillListBox();
+
         }
         private void OrdenNombre()
-        {
-            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.NombreProyecto).ToArray();
-        }
+       {
+            proyectos = proyectos.OrderBy(x => x.NombreProyecto).Reverse().ToList();
+            fillListBox();
+       }
 
-        private void OrdenFechaReciente()
-        {
-            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.FechaInicio).ToArray();
-        }
-        private void OrdenFechaViejo()
-        {
-            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.FechaInicio).Reverse().ToArray();
-        }
+       private void OrdenFechaReciente()
+           
+       {
+           proyectos = proyectos.OrderBy(x => x.FechaInicio).Reverse().ToList();
+
+            fillListBox();
+       }
+       private void OrdenFechaViejo()
+       {
+            proyectos = proyectos.OrderBy(x => x.FechaInicio).ToList();
+            fillListBox();
+       }
 
         private void ButtonAyuda_Click(object sender, RoutedEventArgs e)
-        {
-            Ventana_de_ayuda ayuda = new Ventana_de_ayuda();
-            ayuda.Show();
-        }
+       {
+           Ventana_de_ayuda ayuda = new Ventana_de_ayuda();
+           ayuda.Show();
+       }
     }
 
 
 
 
-    }
+}

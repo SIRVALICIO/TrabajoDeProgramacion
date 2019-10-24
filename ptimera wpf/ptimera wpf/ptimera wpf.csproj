@@ -58,8 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="HojaDeVida.cs" />
-    <Compile Include="Investigador.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Proyecto.cs" />
     <Compile Include="Ventana de ayuda.xaml.cs">
       <DependentUpon>Ventana de ayuda.xaml</DependentUpon>

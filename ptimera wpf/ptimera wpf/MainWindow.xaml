@@ -25,12 +25,12 @@
         <Label x:Name="label_usuario" Content="usuario: " HorizontalAlignment="Left" Margin="49,31,0,0" VerticalAlignment="Top" Height="24" Width="73" FontFamily="Microsoft JhengHei"/>
         <Label x:Name="label_password" Content="contraseña" HorizontalAlignment="Left" Margin="49,60,0,0" VerticalAlignment="Top" Height="26" Width="67"/>
         <TextBox x:Name="TexBox_Usuario" HorizontalAlignment="Left" Height="23" Margin="147,35,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Width="120" GotKeyboardFocus="TexBox_Usuario_GotKeyboardFocus"/>
-        <TextBox x:Name="TexBox_contraseña" HorizontalAlignment="Left" Height="23" Margin="147,64,0,0" TextWrapping="Wrap" Text="contraseña" VerticalAlignment="Top" Width="120" GotKeyboardFocus="TexBox_contraseña_GotKeyboardFocus"/>
         <Button x:Name="Button_validar" Content="login" HorizontalAlignment="Left" Margin="49,126,0,0" VerticalAlignment="Top" Width="75" Click="Button_validar_Click" Cursor="" Height="19"/>
         <Button x:Name="Button_salir" Content="Salir" HorizontalAlignment="Left" Margin="158,126,0,0" VerticalAlignment="Top" Width="75" Click="Button_salir_Click" Height="19"/>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="277,88,0,0"/>
-        <Image Margin="281,101,9.6,10" Source="Escudo_Upb.jpg" Stretch="Fill"/>
-        <Image Margin="286,10,18.6,105" Source="J__C_Solutions.png" Stretch="Fill"/>
+        <Image Margin="281,101,0,0" Source="Escudo_Upb.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="87" Height="77" VerticalAlignment="Top"/>
+        <Image Margin="286,10,0,0" Source="J__C_Solutions.png" Stretch="Fill" HorizontalAlignment="Left" Width="73" Height="73" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="PasswordBoxContraseña" HorizontalAlignment="Left" Margin="147,88,0,0" VerticalAlignment="Top" Width="120" LostFocus="PasswordBoxContraseña_LostFocus"/>
 
     </Grid>
 </Window>

@@ -14,12 +14,16 @@ namespace ptimera_wpf
         private string indiceCompletaion;
         private DateTime fechaInicio;
         private DateTime fechaFinalizacion;
+        private DateTime fechaModificacion;
         private double presupuesto;
         private string empresaSolicitadora;
         private Double pagoPorParteUpb;
         private double pagoPorParteEmpresa;
         private string descripcionProyecto;
         private string investigador;
+
+
+
         public string NombreProyecto
         {
             get { return nombreProyecto; }
@@ -88,6 +92,13 @@ namespace ptimera_wpf
                 
                     fechaFinalizacion = value;
             }
+        }
+
+
+        public DateTime FechaModificacion
+        {
+            get { return fechaModificacion; }
+            set { fechaModificacion = value; }
         }
 
         public double Presupuesto

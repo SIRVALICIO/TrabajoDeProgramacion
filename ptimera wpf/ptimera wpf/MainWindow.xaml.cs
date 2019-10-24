@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,12 +23,19 @@ namespace ptimera_wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        static string usuario = "Juan Paloma";
-        static string contraseña = "pepega";
+        private static List<Login> login = new List<Login>();
+       
 
         public MainWindow()
         {
             InitializeComponent();
+            string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Datos.txt");
+            if (!read.Equals(""))
+            {
+             login = JsonConvert.DeserializeObject<List<Login>>(read);
+
+
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,30 +46,23 @@ namespace ptimera_wpf
 
         private void Button_validar_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (TexBox_Usuario.Text.Equals(usuario) && TexBox_contraseña.Text.Equals(contraseña))
-            {
-                MessageBox.Show("Ingreso exitoso");
 
-                Window2 ventana_proyectos = new Window2();
-
-                //this.Hide();
-
-                //ventana_proyectos.ShowDialog();
-                ventana_proyectos.Show();
-                //this.Show();
-                this.Close();
-            }
-            
-            else if(string.IsNullOrWhiteSpace(TexBox_contraseña.Text) || string.IsNullOrWhiteSpace(TexBox_Usuario.Text))
-            {
-                MessageBox.Show("Información inválida: ingreso de información nulo");
-            }
-            else
-            {
-                MessageBox.Show("Campos completados de manera incorrecta");
-            }
            
+           foreach(Login i in login)
+            {
+                if(TexBox_Usuario.Text.Equals(i.usuario) && PasswordBoxContraseña.Password.Equals(i.contraseña))
+                {
+                    Window2 nueva = new Window2();
+                    nueva.Show();
+                    this.Close();
+                    break;
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecta");
+                }
+            }
             
            
         }
@@ -71,16 +73,16 @@ namespace ptimera_wpf
 
         }
 
-        private void TexBox_contraseña_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            TexBox_contraseña.Text = "";
-        }
+      
 
         private void Button_salir_Click(object sender, RoutedEventArgs e)
         {
              form_login_main.Close();
         }
 
-        
+        private void PasswordBoxContraseña_LostFocus(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
