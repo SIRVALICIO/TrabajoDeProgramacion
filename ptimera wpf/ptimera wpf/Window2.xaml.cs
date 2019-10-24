@@ -122,18 +122,20 @@ namespace ptimera_wpf
             {
                 MessageBox.Show("El campo esta vacio");
             }
-            else if (RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text)) {
+            else if (RegexValores.IsMatch(TexBox_Porcentaje.Text) || negativo.IsMatch(TexBox_Porcentaje.Text))
+            {
                 MessageBox.Show("El valor debe ser porcentual, por lo cual, no puede ser negativo");
             }
-            else {
+            else if (!RegexPorcentaje.IsMatch(TexBox_Porcentaje.Text)) { 
+            {
                 TexBox_Porcentaje.Text = TexBox_Porcentaje.Text + "%";
-
+            }
             }
         }
 
         private void TextBox_Empresa_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (Desripcion.IsMatch(TextBox_Empresa.Text)) {
+            if (!Desripcion.IsMatch(TextBox_Empresa.Text)) {
                 MessageBox.Show("El nombre no tiene caracteres válidos para ser considerado como un nombre de empresa");
 
             }
@@ -183,7 +185,7 @@ namespace ptimera_wpf
             if (string.IsNullOrEmpty(TextBox_actividades.Text)){
                 TextBox_actividades.Text = "Actividades aún por definir";
             }
-            else if (Desripcion.IsMatch(TextBox_actividades.Text))
+            else if (!Desripcion.IsMatch(TextBox_actividades.Text))
             {
                 MessageBox.Show("Los caracteres ingresados no son validos, Vuélvalos a llenar");
             }
@@ -202,7 +204,7 @@ namespace ptimera_wpf
                 MessageBox.Show("Deben definirse actividades antes de proceder");
             }
 
-            else if (Desripcion.IsMatch(TextBox_descripcion.Text))
+            else if (!Desripcion.IsMatch(TextBox_descripcion.Text))
             {
                 MessageBox.Show("Los caracteres ingresados no son validos, Por favor, llénelos");
             }
@@ -272,6 +274,7 @@ namespace ptimera_wpf
             TextBox_actividades.IsReadOnly = true;
             TextBox_actividades.IsEnabled = false;
             DatePickerModificacion.IsEnabled = false;
+            ButtonCambio.Content = "nada";
 
 
 
@@ -312,18 +315,28 @@ namespace ptimera_wpf
             //proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
             TextBox_titulo.IsReadOnly = false;
+            TextBox_titulo.IsEnabled = true;
             TextBox_investigador.IsReadOnly = false;
+            TextBox_investigador.IsEnabled = true;
             TextBox_area.IsReadOnly = false;
+            TextBox_area.IsEnabled = true;
             DatePicker_inicio.IsEnabled = true;
             DatePicker_entrega.IsEnabled = true;
             TexBox_Porcentaje.IsReadOnly = false;
+            TexBox_Porcentaje.IsEnabled = true;
             ListBox_Archivos.IsEnabled = true;
             TextBox_Empresa.IsReadOnly = false;
+            TextBox_Empresa.IsEnabled = true;
             TextBox_Presupuesto.IsReadOnly = true;
+            TextBox_Presupuesto.IsEnabled = false;
+            TextBox_presupuestoEmpresa.IsEnabled = true;
             TextBox_presupuestoEmpresa.IsReadOnly = false;
             TextBox_Peresupuesto3ros.IsReadOnly = false;
+            TextBox_Peresupuesto3ros.IsEnabled = true; ;
             TextBox_descripcion.IsReadOnly = false;
+            TextBox_descripcion.IsEnabled = true;
             TextBox_actividades.IsReadOnly = false;
+            TextBox_actividades.IsEnabled = true;
             ButtonCambio.Content = "Guardar";
             ButtonCambio.Visibility = Visibility.Visible;
             ButtonCambio.IsEnabled = true;
@@ -396,6 +409,7 @@ namespace ptimera_wpf
             
             modes.Add("Más reciente");
             modes.Add("Más antiguo");
+            modes.Add("Modificado REcientemente");
 
             ComboBoxesOrden.Items.Clear();
             for (int i = 0; i < modes.Count; i++)
@@ -604,12 +618,23 @@ namespace ptimera_wpf
                            
                     }
                     break;
+                case 6:
+                    {
+                        ordenModificacion();
+                    }
+                    break;
                     
 
 
 
             }
 
+        }
+
+        private void ordenModificacion()
+        {
+            proyectos = proyectos.OrderBy(x => x.FechaModificacion).ToList();
+            fillListBox();
         }
         
        private void OrdenArea() {

@@ -46,7 +46,7 @@ namespace ptimera_wpf
 
         private void Button_validar_Click(object sender, RoutedEventArgs e)
         {
-
+            int cont = 0;
            
            foreach(Login i in login)
             {
@@ -58,11 +58,17 @@ namespace ptimera_wpf
                     break;
 
                 }
-                else
+                cont++;
+                if (cont.Equals(login.Count))
                 {
                     MessageBox.Show("Usuario o contraseña incorrecta");
                 }
+              
+                
+
             }
+
+            
             
            
         }
