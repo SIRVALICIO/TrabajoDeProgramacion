@@ -464,7 +464,7 @@ namespace ptimera_wpf
             }
             else if (Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
             {
-                MessageBox.Show("La fecha de entrega es mucho antes de la de inicio, por favor corrija el campo");
+                MessageBox.Show("La fecha de entrega es mucho antes a la de inicio, por favor, corrija el campo.");
                 return;
 
             }else

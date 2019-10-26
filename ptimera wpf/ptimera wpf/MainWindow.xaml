@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ptimera_wpf"
         mc:Ignorable="d"
         Title="login" Height="217.381" Width="384.538" Background="White">
-    <Grid Margin="0,0,0.4,-19" RenderTransformOrigin="0.5,0.5" Background="White">
+    <Grid RenderTransformOrigin="0.5,0.5" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -19,19 +19,18 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <Image Grid.ColumnSpan="2" Margin="0,0,-3.4,0" Source="XP.png" Stretch="Fill"/>
 
         <Button x:Name="Boton_Salir" Content="salir" HorizontalAlignment="Left" Margin="428.4,0,-503.4,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" Height="19"/>
-        <Label x:Name="label_usuario" Content="usuario: " HorizontalAlignment="Left" Margin="49,70,0,0" VerticalAlignment="Top" Height="24" Width="73" FontFamily="Microsoft JhengHei"/>
-        <Label x:Name="label_password" Content="contraseña" HorizontalAlignment="Left" Margin="49,120,0,0" VerticalAlignment="Top" Height="26" Width="67" RenderTransformOrigin="0.51,1.736"/>
-        <TextBox x:Name="TexBox_Usuario" HorizontalAlignment="Left" Height="23" Margin="147,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" GotKeyboardFocus="TexBox_Usuario_GotKeyboardFocus"/>
-        <Button x:Name="Button_validar" Content="login" HorizontalAlignment="Left" Margin="49,159,0,0" VerticalAlignment="Top" Width="75" Click="Button_validar_Click" Cursor="" Height="19"/>
-        <Button x:Name="Button_salir" Content="Salir" HorizontalAlignment="Left" Margin="147,159,0,0" VerticalAlignment="Top" Width="75" Click="Button_salir_Click" Height="19"/>
+        <Label x:Name="label_usuario" Content="usuario: " HorizontalAlignment="Left" Margin="49,63,0,0" VerticalAlignment="Top" Height="24" Width="73" FontFamily="Microsoft JhengHei"/>
+        <Label x:Name="label_password" Content="contraseña" HorizontalAlignment="Left" Margin="49,101,0,0" VerticalAlignment="Top" Height="26" Width="67" RenderTransformOrigin="0.51,1.736"/>
+        <TextBox x:Name="TexBox_Usuario" HorizontalAlignment="Left" Height="23" Margin="147,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" GotKeyboardFocus="TexBox_Usuario_GotKeyboardFocus"/>
+        <Button x:Name="Button_validar" Content="login" HorizontalAlignment="Left" Margin="49,137,0,0" VerticalAlignment="Top" Width="75" Click="Button_validar_Click" Cursor="" Height="28"/>
+        <Button x:Name="Button_salir" Content="Salir" HorizontalAlignment="Left" Margin="147,137,0,0" VerticalAlignment="Top" Width="75" Click="Button_salir_Click" Height="28"/>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="277,88,0,0"/>
-        <Image Margin="281,101,0,0" Source="Escudo_Upb.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="87" Height="77" VerticalAlignment="Top"/>
-        <Image Margin="286,10,0,0" Source="J__C_Solutions.png" Stretch="Fill" HorizontalAlignment="Left" Width="73" Height="73" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="PasswordBoxContraseña" HorizontalAlignment="Left" Margin="147,120,0,0" VerticalAlignment="Top" Width="120" LostFocus="PasswordBoxContraseña_LostFocus" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="29,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"><Run Text="Ingreso para el registo de propuestas de"/><LineBreak/><Run Text="                        "/><Run Text="proye"/><Run Text="cto"/><Run Text="s"/><LineBreak/><Run/></TextBlock>
+        <Image Margin="280,88,0,0" Source="Escudo_Upb.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="87" Height="77" VerticalAlignment="Top"/>
+        <Image Margin="285,0,0,0" Source="J__C_Solutions.png" Stretch="Fill" HorizontalAlignment="Left" Width="73" Height="73" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="PasswordBoxContraseña" HorizontalAlignment="Left" Margin="147,101,0,0" VerticalAlignment="Top" Width="120" LostFocus="PasswordBoxContraseña_LostFocus" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218"><Run Text="Ingreso para el registo de propuestas de"/><LineBreak/><Run Text="                        "/><Run Text="proye"/><Run Text="cto"/><Run Text="s"/><Run Text="."/><LineBreak/><Run/></TextBlock>
 
     </Grid>
 </Window>
