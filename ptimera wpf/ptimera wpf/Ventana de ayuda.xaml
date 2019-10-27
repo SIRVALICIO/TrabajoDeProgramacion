@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ptimera_wpf"
         mc:Ignorable="d"
-        Title="Ventana de ayuda" Height="602.37" Width="1131.151">
-    <Grid Margin="0,0,15.8,23.4">
-        <Image Margin="0,10,55,0" Source="Instructions_Project_Programming_Finished.png" Stretch="Fill" Height="529" VerticalAlignment="Top"/>
-
+        Title="Ventana de ayuda" Height="1080" Width="1920">
+    <Grid Margin="0,0,2,2">
+        <Image Margin="0,0,-14,0" Source="Instructions_Project_Programming_2.png" Stretch="Fill"/>
     </Grid>
 </Window>
