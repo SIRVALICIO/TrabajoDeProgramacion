@@ -22,7 +22,7 @@ namespace ptimera_wpf
     /// </summary>
     public partial class Window2 : Window
     {
-        private static List<Proyecto> proyectos;
+        private List<Proyecto> proyectos;
         public static Regex RegexValores = new Regex("^\\D");
         public static Regex Desripcion = new Regex("^\\w*$");
 
@@ -432,7 +432,7 @@ namespace ptimera_wpf
 
            
 
-            if (ListBox_Archivos.SelectedIndex > -1  && ButtonCambio.Content!="Guardar") { 
+            if (ListBox_Archivos.SelectedIndex > -1  && !ButtonCambio.Content.Equals("Guardar")) { 
             Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
             TextBox_titulo.Text = proyectoTemporal.NombreProyecto.ToString();
             TextBox_investigador.Text = proyectoTemporal.Investigador.ToString();
@@ -583,7 +583,7 @@ namespace ptimera_wpf
 
         private void ComboBoxesOrden_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            fillListBox();
+            
             switch (ComboBoxesOrden.SelectedIndex)
             {
                 case 0:
@@ -633,7 +633,7 @@ namespace ptimera_wpf
 
         private void ordenModificacion()
         {
-            proyectos = proyectos.OrderBy(x => x.FechaModificacion).ToList();
+            proyectos = proyectos.OrderBy(x => x.FechaModificacion).ToArray().ToList();
             fillListBox();
         }
         
@@ -648,7 +648,7 @@ namespace ptimera_wpf
       private void OrdenPresupuestoMayor()
        {
 
-            proyectos = proyectos.OrderByDescending(x => x.Presupuesto).Reverse().ToList();
+            proyectos = proyectos.OrderByDescending(x => x.Presupuesto).Reverse().ToArray().ToList();
 
             fillListBox();
 
@@ -659,26 +659,26 @@ namespace ptimera_wpf
            
 
 
-            proyectos = proyectos.OrderBy(x => x.Presupuesto).ToList();
+            proyectos = proyectos.OrderBy(x => x.Presupuesto).ToArray().ToList();
             fillListBox();
 
         }
         private void OrdenNombre()
        {
-            proyectos = proyectos.OrderBy(x => x.NombreProyecto).Reverse().ToList();
+            proyectos = proyectos.OrderBy(x => x.NombreProyecto).ToArray().ToList();
             fillListBox();
        }
 
        private void OrdenFechaReciente()
            
        {
-           proyectos = proyectos.OrderBy(x => x.FechaInicio).Reverse().ToList();
+           proyectos = proyectos.OrderBy(x => x.FechaInicio).Reverse().ToArray().ToList();
 
             fillListBox();
        }
        private void OrdenFechaViejo()
        {
-            proyectos = proyectos.OrderBy(x => x.FechaInicio).ToList();
+            proyectos = proyectos.OrderBy(x => x.FechaInicio).ToArray().ToList();
             fillListBox();
        }
 
