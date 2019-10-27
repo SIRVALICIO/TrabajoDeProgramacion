@@ -646,17 +646,14 @@ namespace ptimera_wpf
 
         private void ordenModificacion()
         {
-            proyectos = proyectos.OrderBy(x => x.FechaModificacion).ToList();
-            guardarEmpleados();
-            fillListBox();
+          
         }
 
         private void OrdenArea()
         {
             proyectos = proyectos.OrderBy(x => x.AreaProyecto).ToList();
 
-            guardarEmpleados();
-            fillListBox();
+            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.AreaProyecto);
 
         }
 
@@ -667,8 +664,7 @@ namespace ptimera_wpf
 
             proyectos = proyectos.OrderBy(x => x.Presupuesto).Reverse().ToList();
 
-            guardarEmpleados();
-            fillListBox();
+            ListBox_Archivos.ItemsSource = proyectos.OrderBy(X => X.Presupuesto).Reverse();
 
 
         }
@@ -678,8 +674,7 @@ namespace ptimera_wpf
 
 
             proyectos = proyectos.OrderBy(x => x.Presupuesto).ToList();
-            guardarEmpleados();
-            fillListBox();
+            ListBox_Archivos.ItemsSource = proyectos.OrderBy(x => x.Presupuesto);
 
         }
         private void OrdenNombre()
