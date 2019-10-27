@@ -648,7 +648,7 @@ namespace ptimera_wpf
       private void OrdenPresupuestoMayor()
        {
 
-            proyectos = proyectos.OrderByDescending(x => x.Presupuesto).Reverse().ToArray().ToList();
+            proyectos = proyectos.OrderBy(x => x.Presupuesto).Reverse().ToArray().ToList();
 
             fillListBox();
 
