@@ -61,8 +61,7 @@ namespace ptimera_wpf
                 #endregion
                 ListBox_Archivos.ItemsSource = proyectos;
 
-            TextBox_Peresupuesto3ros.Text = "0";
-            TextBox_presupuestoEmpresa.Text = "0";
+      
 
 
         }
@@ -442,7 +441,7 @@ namespace ptimera_wpf
 
 
 
-            if (ListBox_Archivos.SelectedIndex > -1)
+            if (ListBox_Archivos.SelectedIndex > -1 && !ButtonCambio.Content.Equals("Guardar"))
             {
                 Proyecto proyectoTemporal = proyectos.ElementAt(ListBox_Archivos.SelectedIndex);
                 TextBox_titulo.Text = proyectoTemporal.NombreProyecto.ToString();
@@ -522,6 +521,8 @@ namespace ptimera_wpf
 
                     int cont = proyectos.Count;
                     proyectos.Insert(cont,proyectosTemp);
+
+                    
 
 
                     guardarEmpleados();
@@ -644,7 +645,7 @@ namespace ptimera_wpf
 
         private void ordenModificacion()
         {
-            List<Proyecto>ProyTemp = proyectos.OrderBy(x => x.FechaModificacion).ToList();
+            List<Proyecto>ProyTemp = proyectos.OrderBy(x => x.FechaModificacion).Reverse().ToList();
             proyectos.Clear();
             proyectos = ProyTemp;
             fillListBox();
@@ -663,7 +664,7 @@ namespace ptimera_wpf
         private void OrdenPresupuestoMayor()
         {
 
-            List<Proyecto> ProyTemp = proyectos.OrderBy(x => x.Presupuesto).ToList();
+            List<Proyecto> ProyTemp = proyectos.OrderBy(x => x.Presupuesto).Reverse().ToList();
             proyectos.Clear();
             proyectos = ProyTemp;
             fillListBox();
