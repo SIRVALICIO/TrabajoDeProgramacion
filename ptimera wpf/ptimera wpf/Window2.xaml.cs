@@ -287,27 +287,30 @@ namespace ptimera_wpf
             //string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
             //proyectos = JsonConvert.DeserializeObject<List<Proyecto>>(read);
             #endregion
-            TextBox_titulo.IsReadOnly = false;
-
-            TextBox_investigador.IsReadOnly = false;
-            TextBox_area.IsReadOnly = false;
+            TextBox_titulo.IsReadOnly = true;
+            TextBox_titulo.IsEnabled = false;
+            TextBox_investigador.IsReadOnly = true;
+            TextBox_investigador.IsEnabled = false;
+            TextBox_area.IsReadOnly = true;
+            TextBox_area.IsEnabled = false;
             DatePicker_inicio.IsEnabled = false;
             DatePicker_entrega.IsEnabled = true;
-
             TexBox_Porcentaje.IsReadOnly = false;
-            TextBlockPorcentaje.IsEnabled = true;
+            TexBox_Porcentaje.IsEnabled = true;
             ListBox_Archivos.IsEnabled = true;
-            TextBox_Empresa.IsReadOnly = false;
+            TextBox_Empresa.IsReadOnly = true;
+            TextBox_Empresa.IsEnabled = false;
             TextBox_Presupuesto.IsReadOnly = true;
-            TextBox_Presupuesto.IsEnabled = true;
+            TextBox_Presupuesto.IsEnabled = false;
             TextBox_presupuestoEmpresa.IsReadOnly = false;
             TextBox_presupuestoEmpresa.IsEnabled = true;
             TextBox_Peresupuesto3ros.IsReadOnly = false;
+            TextBox_Peresupuesto3ros.IsEnabled = true;
             TextBox_descripcion.IsReadOnly = false;
             TextBox_descripcion.IsEnabled = true;
             TextBox_actividades.IsReadOnly = false;
             TextBox_actividades.IsEnabled = true;
-
+            DatePickerModificacion.IsEnabled = false;
 
             ButtonCambio.Content = "Sobre-Escribir";
             ButtonCambio.Visibility = Visibility.Visible;
@@ -492,7 +495,7 @@ namespace ptimera_wpf
                     proyectos.RemoveAt(ListBox_Archivos.SelectedIndex);
                     guardarEmpleados();
 
-
+                    MessageBox.Show("El archivo a sido eliminado correctamente");
                     fillListBox();
 
                 }
@@ -554,6 +557,8 @@ namespace ptimera_wpf
 
 
                     fillListBox();
+                    MessageBox.Show("El archivo se sobre-escribio correctamente");
+                    limpiar();
 
                 }
             }
