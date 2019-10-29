@@ -686,7 +686,7 @@ namespace ptimera_wpf
         }
         private void OrdenNombre()
         {
-            List<Proyecto> ProyTemp = proyectos.OrderBy(x => x.NombreProyecto).ToList();
+            List<Proyecto> ProyTemp = proyectos.OrderBy(x => x.Investigador).ToList();
             proyectos.Clear();
             proyectos = ProyTemp;
             fillListBox();
