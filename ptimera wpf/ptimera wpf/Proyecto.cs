@@ -181,6 +181,14 @@ namespace ptimera_wpf
 
         }
 
+        public Login Login
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public override string ToString()
         {
             return this.nombreProyecto;
