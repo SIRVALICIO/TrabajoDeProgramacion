@@ -12,7 +12,7 @@
         </Grid.ColumnDefinitions>
 
         <ListBox x:Name="ListBox_Archivos" HorizontalAlignment="Left" Height="607" Margin="10,48,0,0" VerticalAlignment="Top" Width="317" SelectionChanged="ListBox_Archivos_SelectionChanged"/>
-        <ComboBox x:Name="ComboBox_Elecciones" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="23,687,0,0" SelectionChanged="ComboBox_Elecciones_SelectionChanged"/>
+        <ComboBox x:Name="ComboBox_Elecciones" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="10,687,0,0" SelectionChanged="ComboBox_Elecciones_SelectionChanged"/>
 
         <TextBlock x:Name="TextBlockProyecto" TextWrapping="Wrap" Text="Nombre del proyecto:" Margin="396,27,0,0" HorizontalAlignment="Left" Width="213" Height="21" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_titulo" Height="23" TextWrapping="Wrap" Margin="397,48,0,0" LostFocus="TextBox_titulo_LostFocus" HorizontalAlignment="Left" Width="508" VerticalAlignment="Top"/>
@@ -37,14 +37,16 @@
         <TextBlock x:Name="TextBlock_Descripcion" TextWrapping="Wrap" Margin="396,621,0,0" HorizontalAlignment="Left" Width="258" Height="25" VerticalAlignment="Top"><Run Text="Descripci"/><Run Text="ó"/><Run Text="n del proyecto: "/></TextBlock>
         <TextBox x:Name="TextBox_descripcion" TextWrapping="Wrap" Margin="396,646,0,0" LostFocus="TextBox_descripcion_LostFocus" Height="152" VerticalAlignment="Top" HorizontalAlignment="Left" Width="688"/>
 
-        <Button x:Name="ButtonCambio" Content="" HorizontalAlignment="Left" Margin="202,687,0,0" VerticalAlignment="Top" Width="75" IsVisibleChanged="True" Click="ButtonCambio_Click"/>
+        <Button x:Name="ButtonCambio" Content="" HorizontalAlignment="Left" Margin="165,690,0,0" VerticalAlignment="Top" Width="82" IsVisibleChanged="True" Click="ButtonCambio_Click"/>
         <DatePicker x:Name="DatePicker_inicio" HorizontalAlignment="Left" Margin="397,185,0,0" VerticalAlignment="Top" Width="147"/>
         <DatePicker x:Name="DatePicker_entrega" HorizontalAlignment="Left" Margin="397,228,0,0" VerticalAlignment="Top" Height="28" Width="147"/>
         <TextBlock x:Name="TextBlockProyectos_Registrados" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Proyectos registrados:" VerticalAlignment="Top" Width="227" Height="24"/>
         <ComboBox x:Name="ComboBoxesOrden" HorizontalAlignment="Left" Margin="207,26,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxesOrden_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="207,10,0,0" TextWrapping="Wrap" Text="Ordenar por: " VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="ButtonAyuda" Content="Ayuda" HorizontalAlignment="Left" Margin="23,758,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAyuda_Click"/>
+        <Button x:Name="ButtonAyuda" Content="Ayuda" HorizontalAlignment="Left" Margin="10,741,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAyuda_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="952,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Ú"/><Run Text="ltima modificaci"/><Run Text="ó"/><Run Text="n:"/></TextBlock>
         <DatePicker x:Name="DatePickerModificacion" HorizontalAlignment="Left" Margin="952,43,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,655,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-1.201,-3.775" Width="155" Height="18"><Run Text="Cantidad "/><Run Text="a"/><Run Text="lmacenada:"/></TextBlock>
+        <TextBox x:Name="TextBoxCont" HorizontalAlignment="Left" Height="18" Margin="165,655,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
     </Grid>
 </Window>

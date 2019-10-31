@@ -33,7 +33,10 @@ namespace ptimera_wpf
         public Window2()
         {
             InitializeComponent();
-            
+
+            TextBoxCont.IsEnabled = false;
+            TextBoxCont.IsReadOnly= true;
+            TextBoxCont.Text = "0";
             string read = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Proyectos.txt");
             if (read.Equals("")) { proyectos=new List<Proyecto>(); }
             else
@@ -184,7 +187,7 @@ namespace ptimera_wpf
             if (string.IsNullOrEmpty(TextBox_actividades.Text)){
                 TextBox_actividades.Text = "Actividades aún por definir";
             }
-            else if (Desripcion.IsMatch(TextBox_actividades.Text))
+            else if (!Desripcion.IsMatch(TextBox_actividades.Text))
             {
                 MessageBox.Show("Los caracteres ingresados no son validos, Vuélvalos a llenar");
             }
@@ -203,7 +206,7 @@ namespace ptimera_wpf
                 MessageBox.Show("Deben definirse actividades antes de proceder");
             }
 
-            else if (Desripcion.IsMatch(TextBox_descripcion.Text))
+            else if (!Desripcion.IsMatch(TextBox_descripcion.Text))
             {
                 MessageBox.Show("Los caracteres ingresados no son validos, Por favor, llénelos");
             }
@@ -223,6 +226,7 @@ namespace ptimera_wpf
         {
             ListBox_Archivos.ItemsSource = null;
             ListBox_Archivos.ItemsSource = proyectos;
+            TextBoxCont.Text = proyectos.Count().ToString();
             
         }
         private void fillComboBoxes()
@@ -288,8 +292,8 @@ namespace ptimera_wpf
             #endregion
             TextBox_titulo.IsReadOnly = true;
             TextBox_titulo.IsEnabled = false;
-            TextBox_investigador.IsReadOnly = true;
-            TextBox_investigador.IsEnabled = false;
+            TextBox_investigador.IsReadOnly = false;
+            TextBox_investigador.IsEnabled = true;
             TextBox_area.IsReadOnly = true;
             TextBox_area.IsEnabled = false;
             DatePicker_inicio.IsEnabled = false;
@@ -416,8 +420,8 @@ namespace ptimera_wpf
             modes.Add("Mayor presupuesto");
 
 
-            modes.Add("Más reciente");
-            modes.Add("Más antiguo");
+            modes.Add("Iniciado recintemente");
+            modes.Add("Finalizado recintemente");
             modes.Add("Modificado recientemente");
 
             ComboBoxesOrden.Items.Clear();
@@ -470,8 +474,9 @@ namespace ptimera_wpf
 
         private void ButtonCambio_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TextBox_titulo.Text) || string.IsNullOrWhiteSpace(TextBox_investigador.Text) || string.IsNullOrWhiteSpace(TextBox_area.Text) || string.IsNullOrEmpty(TexBox_Porcentaje.Text) || string.IsNullOrEmpty(TextBox_Empresa.Text) || string.IsNullOrEmpty(TextBox_presupuestoEmpresa.Text) || string.IsNullOrEmpty(TextBox_Peresupuesto3ros.Text) || string.IsNullOrEmpty(TextBox_actividades.Text) || string.IsNullOrEmpty(TextBox_descripcion.Text))
+            if (string.IsNullOrWhiteSpace(TextBox_titulo.Text) || string.IsNullOrWhiteSpace(TextBox_investigador.Text) || string.IsNullOrWhiteSpace(TextBox_area.Text) || string.IsNullOrEmpty(TexBox_Porcentaje.Text) || string.IsNullOrEmpty(TextBox_Empresa.Text) || string.IsNullOrEmpty(TextBox_presupuestoEmpresa.Text) || string.IsNullOrEmpty(TextBox_Peresupuesto3ros.Text) || string.IsNullOrEmpty(TextBox_actividades.Text) || string.IsNullOrEmpty(TextBox_descripcion.Text)|| string.IsNullOrEmpty(DatePicker_entrega.Text)|| string.IsNullOrEmpty(DatePicker_inicio.Text))
             {
+                MessageBox.Show("Hay un campo vacío, por favor, llénelo");
             }
             else if (Convert.ToDateTime(DatePicker_inicio.Text) > Convert.ToDateTime(DatePicker_entrega.Text))
             {
@@ -494,7 +499,7 @@ namespace ptimera_wpf
                     proyectos.RemoveAt(ListBox_Archivos.SelectedIndex);
                     guardarEmpleados();
 
-                    MessageBox.Show("El archivo a sido eliminado correctamente");
+                    MessageBox.Show("El archivo ha sido eliminado correctamente");
                     fillListBox();
 
                 }
@@ -558,7 +563,7 @@ namespace ptimera_wpf
 
 
                     fillListBox();
-                    MessageBox.Show("El archivo se sobre-escribio correctamente");
+                    MessageBox.Show("El archivo se sobre-escribió correctamente");
                     limpiar();
 
                 }
@@ -685,7 +690,7 @@ namespace ptimera_wpf
         }
         private void OrdenFechaViejo()
         {
-            List<Proyecto> ProyTemp = proyectos.OrderBy(x => x.FechaInicio).ToList();
+            List<Proyecto> ProyTemp = proyectos.OrderBy(x => x.FechaFinalización).Reverse().ToList();
             proyectos.Clear();
             proyectos = ProyTemp;
             fillListBox();
